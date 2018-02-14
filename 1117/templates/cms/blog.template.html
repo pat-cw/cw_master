@@ -1,0 +1,86 @@
+<div class="top-category-wrapper positive blog-hero" style="background-image:url([%asset_url type:'content' id:'[@content_id@]' default:''/%]);">
+    <div class="container">
+        <div class="row">
+        	<div class="col-sm-12 no-description">
+                <br />
+                <h1 style="blog-h1">
+                    <!--##[%url_info name:'page_heading' if:'eq' value:''%]
+                        [%PARAM if_true%]##-->
+                        [@content_name@]
+                        <!--##[%END PARAM%]
+                        [%PARAM if_false%]##-->
+                        <!--##[%url_info name:'page_heading'%][%end url_info%]##-->
+                        <!--##[%END PARAM%]
+                    [%end url_info%]##-->
+
+                    <!--##[%IF [@keywords@] == ''%]##-->
+                        <!--##[%FILTER ID:'keywords' if:'ne' value:''%]##--><!--##[%NOHTML%][%FILTER ID:'keywords'%][%END FILTER%][%END NOHTML%]##--><!--##[%END FILTER%]##-->
+                    <!--##[%END IF%]##-->
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- image category -->
+    <div style="color:#fff; display:none;"><img style="width:100%;" src="[%asset_url type:'content' id:'[@content_id@]' default:'' sortby:'[@date_posted@]'/%]" alt="[@content_name@] - Chef Works"></div>
+<!-- end image category -->
+
+<!-- breadcrumb-wrapper -->
+
+<div class="breadcrumb-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12" id="shopbyfamily">
+                <!-- breadcrumb -->
+                <!--##[%breadcrumb%]
+                    [%PARAM *header%]##-->
+                        <ul class="breadcrumb">
+                            <li>
+                                <a href="[$home_url$]">Home</a>
+                            </li>
+                    <!--##[%END PARAM%]
+                    [%PARAM *body%]##-->
+                        <li>
+                            <a href="[@url@]">[@name@]</a>
+                        </li>
+                    <!--##[%END PARAM%]
+                    [%PARAM *footer%]##-->
+                        </ul>
+                <!--##[%END PARAM%] [%END breadcrumb%]##-->
+                <!-- end breadcrumb -->
+            </div>
+        </div> <!-- end row -->
+    </div>
+</div>
+<!-- end breadcrumb-wrapper -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+            <br><br>
+            <!--##[%thumb_list type:'content' content_type:'blog' template:'' filter_category:'' limit:'10'%]
+                [%param *footer%]
+                [%/param%]
+            [%/thumb_list%]##-->
+          </div>
+        </div>
+        <!--##[%load_template file:"includes/right-sidebar.template.html"%][%END load_template%]##-->
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <!--#Start Pagination# ##-->
+            <ul class="pagination">
+            <!--##[%paging limit:'3'%]
+            [%PARAM *previous_page%]##--><li><a href="[@URL@]">Previous Page</a></li><!--##[%END PARAM%]
+            [%PARAM *goback_pages%]##--><li><a href="[@URL@]">[@PAGE@]</a></li><!--##[%END PARAM%]
+            [%PARAM *current_page%]##--><li class="active"><a href="[@URL@]">[@PAGE@]</a></li><!--##[%END PARAM%]
+            [%PARAM *gonext_pages%]##--><li><a href="[@URL@]">[@PAGE@]</a></li><!--##[%END PARAM%]
+            [%PARAM *next_page%]##--><li><a href="[@URL@]">Next Page</a></li><!--##[%END PARAM%]
+            [%END paging%]##-->
+            </ul>
+            <!--#End Pagination# ##-->
+        </div>
+    </div>
+</div>

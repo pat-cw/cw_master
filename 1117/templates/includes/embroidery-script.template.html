@@ -1,0 +1,73 @@
+
+    	/* Embroidery forms */
+		$('.emb-logo-select').click(function(){ //border logo selection
+			$('.emb-logo-select').removeClass('selected');
+			$(this).addClass('selected');
+			$('.emb-text-table tr').eq('5').appendTo('.logo-placement-target');
+		});
+		
+		$('.emb-text-table #productextra6').change(function(){
+			if ( $(this).val() !="0" ) {
+				$('.embroidery-add-to-cart').removeAttr('disabled'); 
+			}
+		});
+		
+		$('.emb-text-table #productextra0').change(function(){
+			if( $('.emb-text-table #productextra0').val() === "0" ){ //if not selected
+				if ( $('.emb-logo-select').hasClass('selected') ) {
+					
+					} else {
+						$('.embroidery-add-to-cart').attr('disabled','disabled'); //disable add to cart
+					}
+				$('.emb-text-table tr').eq('1').slideUp(); // hide insert text
+				$('.emb-text-table tr').eq('2').slideUp(); // hide insert text
+				$('.emb-text-table tr').eq('3').slideUp(); // hide insert text
+				$('.emb-text-table tr').eq('4').slideUp(); // hide insert text
+			} else { // if selected
+				$('.emb-text-table tr').eq('1').slideDown(function(){ //show insert text
+					$('#productextra1').focus(function(){ //textarea focus
+						if ( $('#productextra1').change() ){ //if there is text
+							$('.emb-text-table tr').eq('2').slideDown(); //show font selection 
+						}
+						$('#productextra1').focusout(function(){
+							if( $(this).val() === "" ) { //if there is not text
+								$('.emb-text-table tr').eq('2').slideUp(); //hide font selection 
+								$('.emb-text-table tr').eq('3').slideUp(); //hide font selection 
+								$('.emb-text-table tr').eq('4').slideUp(); //hide font selection 
+							}
+						});
+					});
+				}); //end line 601
+			};// end if 597
+			$('#productextra2').change(function(){
+				if( $('#productextra2').val() === "0" ){ //font selection not selected
+					$('.emb-text-table tr').eq('3').slideUp(); 
+					if ( $('.emb-logo-select').hasClass('selected') ) {
+					
+					} else {
+					$('.embroidery-add-to-cart').attr('disabled','disabled'); //disable add to cart
+					}
+			  	} else {
+					$('.emb-text-table tr').eq('3').slideDown();
+			  	}
+			});
+			$('#productextra3').change(function(){
+				if( $('#productextra3').val() === "0" ){ //font selection not selected
+					$('.emb-text-table tr').eq('4').slideUp();
+					if ( $('.emb-logo-select').hasClass('selected') ) {
+					
+					} else {
+					$('.embroidery-add-to-cart').attr('disabled','disabled'); //disable add to cart
+					}
+			  	} else {
+					$('.emb-text-table tr').eq('4').slideDown();
+			  	}
+			});
+			$('#productextra4').change(function(){
+				if( $('#productextra4').val() === "0" ){ //font selection not selected
+					$('.embroidery-add-to-cart').hasClass('disabled','disabled'); //disable add to cart
+			  	} else {
+					$('.embroidery-add-to-cart').removeAttr('disabled');
+			  	}
+			});
+		});

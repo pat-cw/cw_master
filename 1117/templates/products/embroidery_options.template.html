@@ -1,0 +1,457 @@
+<div class="product-details-wrapper">
+    <div class="container">
+        <!--##[%SITE_VALUE id:'footer_javascript'%]##-->
+        <!-- Ajax Loading -->
+        <script type="text/javascript" language="javascript">
+            $(document).ready(function() {
+                $.product_variationInit({
+                    'loadtmplates': ['_buying_options', '_images','_header'],
+                    'fns' : {
+                        'onLoad' : function () {
+                            $('.addtocart').button("loading");
+                        },
+                        'onReady' : function () {
+                            $('.addtocart').button("reset");
+                            $('.zoom').zoom();
+                        },
+                    }
+                });
+
+                $('.embroidery-add-to-cart').click(function(){
+                    $(this).fadeOut();
+                    $('.add-another').fadeIn();
+                });
+
+                function nRemoveSku(sku) {
+                    $("#qty"+ sku).val(0);
+                }
+                // When adding a logo, ensure that the correct qty from the query string is added
+                function nAddSku(sku) {
+                    $("#qty"+sku).val('[@form:qty@]');
+                }
+                $(".nUpsellWidget--list--toggle").click(function(){
+                    // Remove quantities for all logos
+                    $(".logo-qty").each(function(){
+                        $(this).val(0);
+                    });
+                    // Add quantity for the chosen logo
+                    var skuDetails = $(this).attr('data-product');
+                    nAddSku(skuDetails);
+                });
+
+            });
+        </script>
+        <script type="text/javascript" src="[%NTHEME_ASSET%]plugins/zoom/jquery.zoom-min.js[%END NTHEME_ASSET%]"></script>
+            <script type="text/javascript">
+            $(document).ready(function(){
+                $('.zoom').zoom();
+            });
+        </script>
+        <script type="text/javascript" src="[%NTHEME_ASSET%]plugins/jcountdown/jquery.jcountdown.min.js[%END NTHEME_ASSET%]"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#sale-end").countdown({
+                    date: "[%format type:'date' format:'#K #d, #Y  #H:#I'%][@promo_end@][%END format%]"
+                });
+            });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                // Multi Level Pricing script
+
+                // Templates in use:
+                // buying_options_embriodery_options
+                // header_embriodery_options
+
+                // Qty pulled from the URL query string.
+                var globalEmbrideryQuantity = [@form:qty@] || 1;
+
+                function updatePricing(){
+
+                    var logoPrice = parseFloat($(".emb-logo-select.selected .nUpsellWidget--list--toggle").attr('data-cost')) || 0;
+
+                    var extraOptionsPrices = [];
+                    $(".emb-text-table .js-extras").each(function(){
+                        var price = $("option:selected", this).attr('data-cost') || 0;
+                        if (price){
+                            extraOptionsPrices.push(parseFloat(price));
+                        }
+                    });
+
+                    // Calculate extra options price
+                	if (extraOptionsPrices.length){
+                		var extraPriceSum = 0;
+                		for (var i = 0; i < extraOptionsPrices.length; i++){
+                			extraPriceSum += extraOptionsPrices[i];
+                		}
+                	} else {
+                		var extraPriceSum = 0;
+                	}
+
+                    // calculate full price of extra options + logo
+                    var fullprice = globalEmbrideryQuantity * (extraPriceSum + logoPrice);
+                    console.log(fullprice)
+
+                    // emb-price is in buying_options_embriodery_options
+                	$(".productprice").html($.formatCurrency(fullprice));
+                }
+
+                $(function(){
+                    // Checks changed element for new price
+                    $("#_jstl__buying_options").on('change', ".emb-text-table .js-extras" ,function(){
+                		updatePricing();
+                    });
+
+                    // Updates price when selecting a logo size
+                    $("#_jstl__buying_options").on('click', ".emb-logo-select" ,function(){
+                		updatePricing();
+                    });
+                });
+            });
+            </script>
+    <!--##[%END SITE_VALUE%]##-->
+    <div class="col-xs-12">
+
+        <!-- breadcrumb -->
+        <ul class="breadcrumb">
+            <li><a href="[$home_url$]">Home</a></li>
+            <!--##[%breadcrumb%][%PARAM *body%]##-->
+            <li><a href="[@url@]">[@name@]</a></li>
+            <!--##[%END PARAM%][%END breadcrumb%]##-->
+        </ul>
+        <!-- end breadcrumb -->
+
+        <div class="row">
+            <!-- product image -->
+            <div class="col-sm-5">
+                <!-- ##[%load_ajax_template id:'_images' type:'item' template:'images' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y' %][%END load_ajax_template%]## -->
+
+                <div class="panel-group emb-info-accordion" id="accordion" role="tablist" aria-multiselectable="true">
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                      <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          How it works?
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                      <div class="panel-body">
+                        <ul style="list-style:decimal; padding-left:15px;">
+                    	<li>Fill in the form as per you requirements.</li>
+                    	<li>We will then email through a visual proof for your approval.</li>
+	                    <li>Please add customer_sales@chefworks.com.au to your safe list to ensure that the proof is received.</li>
+						<li>Please confirm if you are happy with the proof by replying to our email.</li>
+						<li>Once we receive confirmation, we will begin work on your custom order.</li>
+                        </ul>
+                        <p style="color:#e5a724;">
+                        <br>
+                        Please allow 7-10 working days for processing personalized orders. If you require your order urgently, please select the 'Rush Fee' shipping option on checkout.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          About Logos
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                      <div class="panel-body">
+                        <p>Please upload a High Resolution PDF, JPG, PNG file or EPS, AI, CDR vector file.<br>
+                        This will ensure there are no delays in production.<br>
+                        Should you require graphic design assistance our graphics team is available to assist at a rate of $65 per hour.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingThree">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          Embroidery Text Preview
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                      <div class="panel-body">
+                       	<p>
+                        Do you want to see what your embroidery will look like?<br>
+                        Try out you the Embroidery Preview
+                        </p>
+                        <button class="btn btn-tools" id="see-fonts" title="fonts and colours" type="button" data-toggle="modal" data-target="#embroideryTest">Launch "Embroidery text preview"</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingFour">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                          Available Fonts
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                      <div class="panel-body">
+                       	<table width="100%">
+                        	<tr>
+                            	<td width="75%"><img width="100%" src="/assets/images/embroidery-fonts/arial.jpg" title="Arial"></td>
+                                <td width="75%"><p class="text-center">Arial</p></td>
+                            </tr>
+                            <tr>
+                            	<td width="75%"><img width="100%" src="/assets/images/embroidery-fonts/typo-uprite.jpg" title="Typo Uprite"></td>
+                                <td width="75%"><p class="text-center">Typo Uprite</p></td>
+                            </tr>
+                            <tr>
+                            	<td width="75%"><img width="100%" src="/assets/images/embroidery-fonts/century-schoolbook.jpg" title="Century Schoolbook"></td>
+                                <td width="75%"><p class="text-center">Century Schoolbook</p></td>
+                            </tr>
+                            <tr>
+                            	<td width="75%"><img width="100%" src="/assets/images/embroidery-fonts/braddon.jpg" title="Braddon"></td>
+                                <td width="75%"><p class="text-center">Braddon</p></td>
+                            </tr>
+                            <tr>
+                            	<td width="75%"><img width="100%" src="/assets/images/embroidery-fonts/brush-script.jpg" title="Brush Script"></td>
+                                <td width="75%"><p class="text-center">Brush Script</p></td>
+                            </tr>
+                            <tr>
+                            	<td width="75%"><img width="100%" src="/assets/images/embroidery-fonts/garamond-bold.jpg" title="Garamond Bold"></td>
+                                <td width="75%"><p class="text-center">Garamond Bold</p></td>
+                            </tr>
+                            <tr>
+                            	<td width="75%"><img width="100%" src="/assets/images/embroidery-fonts/futura.jpg" title="Futura"></td>
+                                <td width="75%"><p class="text-center">Futura</p></td>
+                            </tr>
+                            <tr>
+                            	<td width="75%"><img width="100%" src="/assets/images/embroidery-fonts/english-script.jpg" title="English Script"></td>
+                                <td width="75%"><p class="text-center">English Script</p></td>
+                            </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingFive">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                          Available Colours
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                      <div class="panel-body">
+                       	<table width="100%" class="embroidery-colours">
+                        	<tr valign="middle" style="vertical-align:middle;">
+                            	<td valign="middle" width="20%" class="text-center" style="color:#fff;" bgcolor="#000">Black</td>
+                                <td valign="middle" width="20%" class="text-center" style="color:#fff;" bgcolor="#653b2c">Dark Brown<br>PMS 477C</td>
+                                <td valign="middle" width="20%" class="text-center" style="color:#fff;" bgcolor="#84332e">Brown<br>PMS 181C</td>
+                                <td valign="middle" width="20%" class="text-center" style="color:#fff;" bgcolor="#945022">Copper<br>PMS 724C</td>
+                                <td valign="middle" width="20%" class="text-center" style="color:#fff;" bgcolor="#b06f29">Bronze<br>PMS 139C</td>
+                            </tr>
+                            <tr>
+                                <td valign="middle" width="20%" class="text-center" style="color:#fff;" bgcolor="#006649">Emerald<br>PMS 342C</td>
+                                <td valign="middle" width="20%" class="text-center" style="color:#fff;" bgcolor="#7da8ae">Turquoise<br>PMS 5493C</td>
+                                <td valign="middle" width="20%" class="text-center" style="color:#fff;" bgcolor="#857650">Metal Gold<br>PMS 871C</td>
+                                <td valign="middle" width="20%" class="text-center" style="color:#fff;" bgcolor="#c7932c">Matt Gold<br>PMS 871C</td>
+                                <td valign="middle" width="20%" class="text-center" style="color:#fff;" bgcolor="#e1c19f">Beige<br>PMS 726C</td>
+                            </tr>
+                            <tr>
+                                <td valign="middle" width="20%" class="text-center" style="color:#fff;" bgcolor="#00764b">Green<br>PMS 3415C</td>
+                                <td valign="middle" width="20%" class="text-center" style="color:#fff;" bgcolor="#80bd41">Lime<br>PMS 376C</td>
+                                <td valign="middle" width="20%" class="text-center" style="color:#fff;" bgcolor="#9acb40">Fluro<br>PMS 367C</td>
+                                <td valign="middle" width="20%" class="text-center" style="color:#fff;" bgcolor="#b7dbd3">Pale Blue<br>PMS 566C</td>
+                                <td valign="middle" width="20%" class="text-center" style="color:#fff;" bgcolor="#55c1ea">Cyan<br>PMS 2985C</td>
+                            </tr>
+                            <tr>
+                                <td valign="middle" width="20%" class="text-center" style="color:#fff;" bgcolor="#1f3e7c">Dark Royal<br>PMS 2069C</td>
+                                <td valign="middle" width="20%" class="text-center" style="color:#fff;" bgcolor="#1d4387">Light Royal<br>PMS 661C</td>
+                                <td valign="middle" width="20%" class="text-center" style="color:#fff;" bgcolor="#447cbf">Denim<br>PMS 660C</td>
+                                <td valign="middle" width="20%" class="text-center" style="color:#fff;" bgcolor="#00bfdd">Aqua Blue<br>PMS 311C</td>
+                                <td valign="middle" width="20%" class="text-center" style="color:#fff;" bgcolor="#0063a7">Mid Blue<br>PMS 300C</td>
+                            </tr>
+                            <tr>
+                                <td valign="middle" width="20%" class="text-center" style="color:#fff;" bgcolor="#236093">Navy<br>PMS 647C</td>
+                                <td valign="middle" width="20%" class="text-center" style="color:#fff;" bgcolor="#613494">Purple<br>PMS 267C</td>
+                                <td valign="middle" width="20%" class="text-center" style="color:#fff;" bgcolor="#802347">Burgundy<br>PMS 216C</td>
+                                <td valign="middle" width="20%" class="text-center" style="color:#fff;" bgcolor="#8b2433">Merlot<br>PMS 202C</td>
+                                <td valign="middle" width="20%" class="text-center" style="color:#fff;" bgcolor="#cf202f">Red<br>PMS 186C</td>
+                            </tr>
+                            <tr>
+                                <td valign="middle" width="20%" class="text-center" style="color:#fff;" bgcolor="#fdb527">Yellow<br>PMS 123C</td>
+                                <td valign="middle" width="20%" class="text-center" style="color:#fff;" bgcolor="#f99d26">Pale Orange<br>PMS 1375C</td>
+                                <td valign="middle" width="20%" class="text-center" style="color:#fff;" bgcolor="#e55625">Orange<br>PMS 166C</td>
+                                <td valign="middle" width="20%" class="text-center" style="color:#fff;" bgcolor="#f7b5cc">Pale Pink<br>PMS 1895C</td>
+                                <td valign="middle" width="20%" class="text-center" style="color:#fff;" bgcolor="#dd8898">Deep Pink<br>PMS 493C</td>
+                            </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingSix">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                          Available Placements
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseSix" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingSix">
+                      <div class="panel-body">
+                    	<div>
+                          <!-- Nav tabs -->
+                          <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#jackets" aria-controls="jackets" role="tab" data-toggle="tab">Jackets</a></li>
+                            <li role="presentation"><a href="#aprons" aria-controls="aprons" role="tab" data-toggle="tab">Aprons</a></li>
+                            <li role="presentation"><a href="#headwear" aria-controls="headwear" role="tab" data-toggle="tab">Headwear</a></li>
+                          </ul>
+
+                          <!-- Tab panes -->
+                          <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="jackets">
+                            	<a href="/assets/images/embroidery-placements/jackets-full.jpg" target="_blank" title="Click to enlarge">
+                            		<img width="100%" src="/assets/images/embroidery-placements/jackets.jpg" title="Click to enlarge">
+                            	</a>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="aprons">
+                            	<a href="/assets/images/embroidery-placements/aprons-full.jpg" target="_blank" title="Click to enlarge">
+                                	<img width="100%" src="/assets/images/embroidery-placements/aprons.jpg" title="Click to enlarge">
+                               	</a>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="headwear">
+                            	<a href="/assets/images/embroidery-placements/headwear-full.jpg" target="_blank" title="Click to enlarge">
+	                            	<img width="100%" src="/assets/images/embroidery-placements/headwear.jpg" title="Click to enlarge">
+                                </a>
+                            </div>
+
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <!-- end product image -->
+
+            <hr class="visible-xs"></hr>
+
+            <div class="col-sm-7">
+
+                <!--##[%load_ajax_template id:'_header' type:'item' template:'header_embroidery_options' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y' %][%END load_ajax_template%]##-->
+                <form>
+                    <!--##[%list_item_variations id:'[@current_sku@]'%]
+                        [%PARAM header%]##-->
+                        <input type="hidden" id="_itmspec_sku" value="[%NOHTML%][@SKU@][%END NOHTML%]">
+                        <!-- hr -->
+                        <div class="row">
+                        <!--##[%END PARAM%]
+                        [%PARAM *variation_header%]##-->
+                                <div class="_itmspec_listopt col-xs-12 col-md-6" ref="[@specific_id@]">
+                                    <div class="variation-name">
+                                        <strong>[@specific_name@]</strong>
+                                    </div>
+                                    <div class="specific">
+                                        <input type="hidden" class="_itmspec_val" ref="[@specific_id@]" value="[@selected_id@]">
+                    <!--##[%END PARAM%]
+                    [%PARAM *variation_body%]##-->
+                                        <div class="_itmspec_listitm" ref="[@specific_id@]_[@value_id@]">
+                                            <a class="_itmspec_lnk [%DATA id:'selected' if:'eq' value:'1'%]_itmspec_selected[%END DATA%]" href="javascript:void(0);" ref="[@specific_id@]_[@value_id@]">
+                                                <!--##[%IF [@value_image@]%]##-->
+                                                    <img src="[@value_image@]" alt="[@value_name@]" />
+                                                <!--##[%END IF%]##-->
+                                                <!--##[%IF [@value_description@]%]##-->
+                                                    [@value_name@]
+                                                <!--##[%ELSE%]##-->
+                                                    [@value_description@]
+                                                <!--##[%END IF%]##-->
+                                            </a>
+                                        </div>
+                    <!--##[%END PARAM%]
+                    [%PARAM *variation_body_radio%]##-->
+                                        <label class="_itmspec_listitm btn btn-default" ref="[@specific_id@]_[@value_id@]">
+                                            <input class="_itmspec_radio" type="radio" name="_itmspec_radio[@specific_id@]" value="[@value_id@]" ref="[@specific_id@]_[@value_id@]" [%DATA id:'selected' if:'eq' value:'1'%]checked[%END DATA%]> [@value_name@]
+                                        </label>
+                    <!--##[%END PARAM%]
+                    [%PARAM *variation_body_image%]##-->
+                                        <span class="_itmspec_listitm" ref="[@specific_id@]_[@value_id@]">
+                                            <a class="_itmspec_lnk [%DATA id:'selected' if:'eq' value:'1'%]_itmspec_selected[%END DATA%]" href="javascript:void(0);" ref="[@specific_id@]_[@value_id@]">
+                                                <!--##[%DATA id:'value_image' if:'ne' value:''%]
+                                                    [%PARAM *if_true%]##-->
+                                                        <img src="[@value_image@]" alt="[@value_name@]">
+                                                    <!--##[%END PARAM%]
+                                                    [%PARAM *if_false%]##-->
+                                                        [@value_name@]
+                                                    <!--##[%END PARAM%]
+                                                [%END DATA%]##-->
+                                            </a>
+                                        </span>
+                    <!--##[%END PARAM%]
+                    [%PARAM *variation_footer%]##-->
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                    <!--##[%END PARAM%]
+                    [%PARAM *variation_header_select%]##-->
+                                <div class="_itmspec_listopt col-xs-12 col-md-6" ref="[@specific_id@]">
+                                    <div class="variation-name">
+                                        <strong>[@specific_name@]</strong>
+                                    </div>
+
+                                    <div class="specific">
+                                        <input type="hidden" class="_itmspec_val" ref="[@specific_id@]" value="[@selected_id@]">
+                                        <div class="n-wrapper-form-control">
+                                            <span class="_itmspec_optpl" ref="[@specific_id@]">
+                                                <select class="_itmspec_opt form-control" ref="[@specific_id@]">
+                    <!--##[%END PARAM%]
+                    [%PARAM *variation_body_select%]##-->
+                                                    <option value="[@value_id@]" [%DATA id:'selected' if:'eq' value:'1'%]selected[%END DATA%]>[@value_name@]</option>
+                    <!--##[%END PARAM%]
+                    [%PARAM *variation_footer_select%]##-->
+                                                </select>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--##[%IF [@misc2@]%]##-->
+                                <div class="col-xs-12 col-md-6">
+                                    <p>Please check size chart.</p>
+                                    <button class="btn btn-block btn-tools" title="Show size chart" type="button" data-toggle="modal" data-target="#sizeChart">Size Chart</button>
+                                </div>
+                                <!--##[%END IF%]##-->
+
+                    <!--##[%END PARAM%]
+                    [%PARAM footer%]##-->
+                        </div>
+                        <!--##[%END PARAM%]
+                    [%END list_item_variations%]##-->
+                    <!--<div class="row sizechart-wrapper">
+                        <div class="col-sm-3 col-sm-offset-9">
+                            <button class="btn btn-block btn-tools" title="Embroidery tester" type="button" data-toggle="modal" data-target="#embroideryTest">Embroidery tester</button>
+                        </div>
+                    </div>-->
+
+                    <!--##[%IF ![@has_variation@]%]##-->
+                    <!--##[%load_template file:"products/includes/child_products.template.html"%][%END load_template%]##-->
+                    <!--##[%END IF%]##-->
+                </form>
+                <!--##[%IF [@has_variation@] || ![@has_child@] AND ![@has_components@]%]##-->
+                    <!--##[%load_ajax_template id:'_buying_options' type:'item' template:'buying_options_embroidery_options' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y' %][%END load_ajax_template%]##-->
+                <!--##[%END IF%]##-->
+
+                           <!--##[%IF [@has_components@]%]##-->
+                       <hr>
+                       <h2>Customise Your Purchase</h2>
+
+                       <!--##[%load_template file:"products/includes/components.template.html"%][%END load_template%]##-->
+
+                        <!--##[%END IF%]##-->
+
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+<!-- end product detail wrapper -->

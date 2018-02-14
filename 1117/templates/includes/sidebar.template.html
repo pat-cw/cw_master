@@ -1,0 +1,142 @@
+<div class="col-xs-12 col-sm-3 disp-off cov" id="covet"><div class="panel panel-default invs"></div></div>
+
+<div class="panel-w side-bal" id="left-sidebar">
+
+	[%IF [@page_type@] eq 'category' and [@config:show_filters@]%]
+
+		<div class="panel panel-default" id="sidebar-filters">
+			<div class="panel-heading panel-heading-thumbnails padding-head">
+				<h3 class="panel-title sb-resp-h3">
+					<a class="accordion-toggle title-inline a-blk" data-toggle="collapse" data-parent="#filters-accordion" href="#filters">Filter Products</a>
+				</h3>
+			</div>
+			<ul id="filters" class="panel-collapse collapse list-group">
+				[%PRODUCT_FILTER type:'variations' autohide:'0'%]
+					[%PARAM *header%]
+						<li class="list-group-item filter-title filter-h hfil lgi-h2" data-filtercode="[@specific_id@]"><h4 class="sb-resp-h4"><i class="fa fa-angle-down pull-right"></i>[@filter_name@]</h4></li>
+					[%/PARAM%]
+
+					[%PARAM *body%]
+						[%DATA id:'selected' if:'==' value:'1'%]
+							[%PARAM *if_true%]
+								<li class="filter-remove filter" data-filtercode="[@specific_id@]"><a href="[@remove_single_url@]" class="list-group-item sub-list-1 sub-list-group-item" rel="nofollow">
+									[@name@] <span class="text-muted"></span></a>
+									[%SITE_VALUE id:'filterthing'%]a[%/SITE_VALUE%]
+								</li>
+							[%/PARAM%]
+
+							[%PARAM *if_false%]
+								<li class="filter" data-filtercode="[@specific_id@]">
+									<a class="list-group-item sub-list-1 sub-list-group-item" href="[@url@]"> [@name@] <span class="text-muted"></span></a>
+								</li>
+							[%/PARAM%]
+						[%/DATA%]
+					[%/PARAM%]
+				[%/PRODUCT_FILTER%]
+					[%PRODUCT_FILTER type:'price' limit:'6'%]
+						[%PARAM header%]
+							<li class="list-group-item hidden-md hidden-lg filter-title" data-filtercode="price"><h4 class="sb-resp-h4"><i class="fa fa-angle-down pull-right"></i>Price Range </h4></li>
+						[%/PARAM%]
+						[%PARAM *body%]
+							[%DATA id:'selected' if:'==' value:'1'%][%PARAM *if_true%]
+								<li class="filter-remove hidden-md hidden-lg price-range" data-filtercode="price"><a href="[@remove_url@]" class="list-group-item" rel="nofollow">
+									[@name@] <span class="text-muted">([@total@])</span></a>
+								</li>
+								[%/PARAM%][%PARAM *if_false%]
+								[%DATA id:'min' if:'=' value:'0'%][%DATA id:'max' if:'>' value:'0'%]
+									<li class="filter hidden-md hidden-lg price-range" data-filtercode="price"><a class="list-group-item" href="[@url@]">[%FORMAT type:'currency' dp:'0'%][@max@][%/FORMAT%] or below</a></li>
+								[%/DATA%][%/DATA%]
+								[%DATA id:'min' if:'>' value:'0'%][%DATA id:'max' if:'>' value:'0'%]
+									<li class="filter hidden-md hidden-lg price-range" data-filtercode="price"><a class="list-group-item" href="[@url@]">[%FORMAT type:'currency' dp:'0'%][@min@][%/FORMAT%] to [%FORMAT type:'currency' dp:'0'%][@max@][%/FORMAT%]</a></li>
+								[%/DATA%][%/DATA%]
+								[%DATA id:'max' if:'=' value:'0'%]
+									<li class="filter hidden-md hidden-lg price-range" data-filtercode="price"><a class="list-group-item" href="[@url@]">[%FORMAT type:'currency' dp:'0'%][@min@][%/FORMAT%] or above</a></li>
+								[%/DATA%]
+						[%/PARAM%]
+						[%/DATA%]
+					[%/PARAM%]
+					[%PARAM footer%]
+					[%/PARAM%]
+					[%PARAM ifempty%]
+					[%/PARAM%]
+				[%/PRODUCT_FILTER%]
+
+
+				[%PRODUCT_FILTER type:'price' limit:'1'%]
+					[%PARAM header%]
+						<li class="list-group-item hidden-sm hidden-xs filter-title" data-filtercode="price-lg"><h4 class="sb-resp-h4"><i class="fa fa-angle-down pull-right"></i>Price Range</h4></li>
+					[%/PARAM%]
+					[%PARAM *body%]
+						[%SITE_VALUE id:'footer_javascript'%]
+							<script type="text/javascript">
+								$(function() {
+								var vals = ['[@min@]','[@max@]'];
+								for(var i=0; i<vals.length; i++) {vals[i]=parseInt(vals[i]); }
+									$( "#price-range" ).slider({
+										range: true,
+										min: vals[0],
+										max: vals[1],
+										values: vals,
+										slide: function( event, ui ) {
+											$( "#price-range-text" ).html( '$'+ui.values[0]+' to $'+ui.values[1] );
+											$( '#pricesearch input[name="pr"]' ).val( ui.values[0]+'-'+ui.values[1] );
+										},
+										create: function( event, ui ) {
+											$( "#price-range-text" ).html( '$'+vals[0]+' to $'+vals[1] );
+											$( '#pricesearch input[name="pr"]' ).val( vals[0]+'-'+vals[1] );
+										}
+									});
+								});
+							</script>
+						[%/SITE_VALUE%]
+						<li class="list-group-item hidden-sm hidden-xs price-range-lg" data-filtercode="price-lg"><p id="price-range"></p>
+							[%DATA id:'selected' if:'==' value:'1'%]
+								[%PARAM *if_true%]
+									<p id="price-range-text" class="price_range price-list-1"></p>
+								[%/PARAM%]
+								[%PARAM *if_false%]
+									<p id="price-range-text" class="price_range price-list-1"></p>
+								[%/PARAM%]
+							[%/DATA%]
+							<form id="pricesearch" method="get" action="[$current_url$]">
+								<input type="hidden" name="rf" value="[%FILTER_CODE id:'price'%][%/FILTER_CODE%]">
+								<input  name="pr" type="hidden" value="">
+								<input type="submit" value="Filter By Price" class="btn btn-default btn-xs" />
+								<a href="[@remove_url@]" class="btn btn-default btn-xs" rel="nofollow"> Reset Range</a>
+							</form>
+						</li>
+					[%/PARAM%]
+				[%/PRODUCT_FILTER%]
+			</ul>
+		</div>
+	[%/IF%]
+
+</div>
+
+<script type="text/javascript">
+		$(document).ready(function(){
+//sticky sidebar
+var ofa = 183;
+$navPosSB = $('#sidebar-filters').offset().top - ofa;
+if ($(window).width() > 768) {
+	$(window).scroll(function() {
+		if ($(window).scrollTop() > $navPosSB) {
+			$('#sidebar-filters').addClass('fixed-ls');
+			$('#left-sidebar').addClass('fixed-ls');
+			$('#left-sidebar').removeClass('col-sm-3')
+			$('#covet').removeClass('disp-off');
+			$('#covet').removeClass('col-sm-3');
+		} else {
+			$('#left-sidebar').addClass('side-bal');
+			$('#sidebar-filters').removeClass('fixed-ls');
+			$('#left-sidebar').removeClass('fixed-ls');
+			$('#left-sidebar').addClass('col-sm-3')
+			$('#covet').addClass('disp-off');
+			$('#covet').addClass('col-sm-3');
+		} //end if
+	});
+} //end if
+}); //end .ready
+</script>
+
+<div class="col-xs-12 col-sm-9 list-content-main">

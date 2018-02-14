@@ -1,0 +1,142 @@
+<script type="text/javascript">
+    $('.extra-options-container .extra-option-group-collapse > .extra-option-row').each(function(i) {
+        if(i % 5 == 0) {
+            $(this).nextAll().andSelf().slice(0,5).wrapAll('<div class="extra-option-group"></div>');
+        }
+    });
+
+    var extraoptioncount = 0;
+    $(document).on('click', 'button.addembroidery', function(){
+        if(!$(this).hasClass('activated')){
+            $('.extra-option-group-collapse').css("display","block");
+            $('.extra-option-head-reset').css("display","inline-block");
+            $('.extra-option-group-collapse .extra-option-group:eq('+extraoptioncount+')').show();
+            extraoptioncount++;
+            $("<p class='logo-msg'><i class='fa fa-info'></i> Please Note: You will need to upload your logo after the checkout page.</p>").insertAfter($(".extra-option-group-collapse > .extra-option-group:nth-of-type(5) > .extra-option-row > .extra-option-name"));
+            $(this).addClass('activated');
+        }
+    });
+
+    $('.extra-option-group-collapse').on('click', 'button.addembroideryb', function(){
+        $('.extra-option-group-collapse').css("display","block");
+        $('.extra-option-group-collapse .extra-option-group:eq('+extraoptioncount+')').show();
+        extraoptioncount++;
+        if(extraoptioncount == 3){
+            $(".addembroideryb").hide();
+        }
+    });
+
+    $('.resetembroidery').click(function() {
+        location.reload(true);
+    });
+
+    $('.extra-option-name > select').change(function(){
+        var textarea_status = 0;
+        $(this).parents('extra-option-group').children('textarea').each(function(){
+            if($(this).val() != ''){
+                textarea_status = 1;
+            };
+        });
+        if($(this).val() != 0){
+            $(this).parents('.extra-option-group').children().css("display", "block");
+            $(this).parents('.extra-option-group').addClass('active-option');
+            if(textarea_status == 0){
+                $('.addtocart').attr("disabled", true);
+            }
+            else{
+                $('.addtocart').removeAttr("disabled");
+            }
+        };
+        if($(this).val() == 0){
+            $(this).parents('.extra-option-group').children().not(":first-child").css("display", "none");
+            $(this).parents('.extra-option-group').removeClass('active-option');
+            $('.addtocart').removeAttr("disabled");
+        };
+    });
+
+    $(document).on('keyup', '.active-option textarea', function(e){
+        e.preventDefault();
+        $(this).each(function(){
+            var embroidery_line = $(this).parents('.extra-option-row').prev().children('.extra-option-name').children('.form-control').val();
+            if(embroidery_line != 0){;
+                if($(this).val() == ''){
+                    $('.addtocart').attr("disabled", true);
+                }
+                else {
+                    $('.addtocart').removeAttr("disabled");
+                }
+            }
+        });
+    });
+</script>
+<div class="extra-options">
+   <!--##[%extra_options id:'[@SKU@]'%]
+       [%PARAM *header%]##-->
+       <hr />
+       <div class="row">
+           <div class="col-xs-12">
+               <div class="extra-options-container">
+                   <div class="extra-option-group">
+                       <div class="extra-option-row-head">
+                           <div class="extra-option-head-text">
+                               <button class="addembroidery" type="button">Add embroidery <i class="fa fa-question-circle"></i></button>
+                           </div>
+                           <div class="extra-option-head-reset">
+                               <button class="resetembroidery" type="button"><i class="fa fa-times"></i> Reset embroidery</button>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="extra-option-group-collapse">
+           <!--##[%END PARAM%][%PARAM *number_option%]##-->
+               <div class="extra-option-row">
+                   <div class="extra-option-title">
+                       [@name@]:
+                   </div>
+                   <div class="extra-option-name">
+                       <input name="extra[@count@]" class="form-control" id="productextra[@count@]" rel="[@SKU@]" value="">
+                   </div>
+               </div>
+
+           <!--##[%END PARAM%][%PARAM *text_option%]##-->
+               <div class="extra-option-row">
+                   <div class="extra-option-title">
+                       [@name@]:
+                   </div>
+                   <div class="extra-option-name">
+                       <textarea name="extra[@count@]" class="form-control" id="productextra[@count@]" rel="[@SKU@]" cols="20"></textarea>
+                   </div>
+               </div>
+           <!--##[%END PARAM%]
+           [%PARAM *select_option%]##-->
+               <div class="extra-option-row">
+                   <div class="extra-option-title">
+                       [@name@]:
+                   </div>
+                   <div class="extra-option-name">
+                       <select name="extra[@count@]" class="form-control" id="productextra[@count@]" rel="[@SKU@]">
+                           [@choices@]
+                       </select>
+                       [%if [@name@] eq 'Thread colour'%]
+                            <button class="btn btn-tools" title="fonts and colours" type="button" data-toggle="modal" data-target="#embroideryTest">See fonts and colours</button>
+                       [%/if%]
+                   </div>
+               </div>
+
+           <!--##[%END PARAM%]
+           [%PARAM *choices%]##-->
+               <option type="text" value="[@option_id@]"><!--##[%nohtml%]##-->[@text@]<!--##[%end nohtml%]##-->
+               <!--##[%DATA id:'price' if:'!=' value:'0'%]##-->
+                   (+ <!--##[%FORMAT type:'currency'%]##-->[@price@]<!--##[%END FORMAT%]##-->)
+               <!--##[%END DATA%]##-->
+               </option>
+           <!--##[%END PARAM%]
+           [%PARAM *footer%]##-->
+           <input type="hidden" name="extras" value="[@total_options@]"/>
+                   </div>
+               </div>
+           </div>
+       </div>
+
+       <!--##[%END PARAM%]
+   [%END extra_options%]##-->
+</div>

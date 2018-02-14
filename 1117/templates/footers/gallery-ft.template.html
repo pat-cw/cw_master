@@ -1,0 +1,588 @@
+<!-- FOOTER -->
+<!-- /.row -->
+</div><!-- /#main-content -->
+</div>
+<!-- end role main -->
+
+<div class="wrapper-footer">
+    <div class="top-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-7 col-xs-12">
+
+                    <!-- Begin MailChimp Signup Form -->
+                    <h5>Subscribe to our newsletter:</h5><br class="visible-xs">
+                    <form action="//chefworks.us9.list-manage.com/subscribe/post?u=c9ca949d7d38387bb4b553615&amp;id=bc2f6c1373" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                        <div class="input-group">
+                            <input type="email" value="" name="EMAIL" class="form-control" id="mce-EMAIL" placeholder="email address" required>
+                            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_c9ca949d7d38387bb4b553615_bc2f6c1373" tabindex="-1" value=""></div>
+                            <span class="input-group-btn">
+                            	<input class="btn btn-default" type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe">
+                            </span>
+                        </div>
+                    </form>
+
+                    <!--End mc_embed_signup-->
+
+                    <!--End mc_embed_signup-->
+
+                    <div style="display:none;">
+                        <h5>Subscribe to our newsletter:</h5><br class="visible-xs">
+                        <form method="post" action="[%URL type:'page' id:'subscribe' https:'1'%][%END URL%]">
+                            <input type="hidden" name="list_id" value="1">
+                            <input type="hidden" name="opt_in" value="y">
+                            <div class="input-group">
+                                <input name="inp-email" class="form-control" type="email" value="[%nohtml%][@inp-email@][%end nohtml%]" placeholder="Email Address" required/>
+                                <input name="inp-submit" type="hidden" value="y" />
+                                <input name="inp-opt_in" type="hidden" value="y" />
+                                <span class="input-group-btn">
+                                    <input class="btn btn-default" type="submit" value="Subscribe" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>"/>
+                                </span>
+                            </div>
+                        </form>
+                     </div>
+
+                </div>
+
+                <div class="col-xs-12 col-sm-5">
+                    <ul class="socials">
+                        <li>
+                            <a href="https://www.facebook.com/ChefWorksAU" target="_blank" title="Follow Chef Works Australia on Facebook"><i class="fa fa-facebook-square"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://www.pinterest.com/culinaryapparel/" target="_blank" title="Follow Chef Works Australia on Pinterest"><i class="fa fa-pinterest"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/chefworks_australia/" target="_blank" title="Follow Chef Works Australia on Instagram"><i class="fa fa-instagram"></i></a>
+                        </li>
+                        <li>
+                            <a href="http://www.linkedin.com/company/chef-works-australia" target="_blank" title="Follow Chef Works Australia on LinkedIn"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container text-center" style="margin-bottom:80px;">
+        <div class="row">
+            <div class="col-xs-12 col-sm-4">
+            	<strong style="color:#333;"><i class="fa fa-refresh"></i> 100 Days FREE Return</strong>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+            	<strong style="color:#333;"><i class="fa fa-truck"></i> NEXT DAY DISPATCH</strong>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+            	<strong style="color:#333;"><i class="fa fa-heart"></i> Standard shipping $9.95</strong>
+            </div>
+        </div>
+    </div>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-8">
+				<div class="row">
+					[%menu id:'web_footer'%]
+						[%param *level_1%]
+							<div class="col-xs-12 col-sm-4 footer-col">
+								<h4>[@name@]</h4>
+								<ul class="nav nav-pills nav-stacked">
+									[@next_level@]
+								</ul>
+							</div>
+						[%end param%]
+						[%param *level_2%]
+							<li><a href="[@url@]">[@name@]</a></li>
+						[%end param%]
+					[%end menu%]
+				</div>
+			</div>
+
+            <div class="col-xs-12 col-sm-4">
+                <div class="row">
+					[%menu id:'from-the-blog'%]
+                    [%param header%]
+                    <h4>From the blog</h4>
+                    <ul class="nav nav-pills nav-stacked">
+                    [%/param%]
+                    [%param *level_1%]
+                        <li><a href="[@url@]" title="Read [@name@]">[@name@]</a></li>
+                    [%/param%]
+                    [%param footer%]
+                    </ul>
+                    [%/param%]
+                    [%/menu%]
+				</div>
+            </div>
+
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+                <br>
+			</div>
+		</div>
+	</div>
+    <div class="bottom-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <address>
+                        <small>
+                        Copyright &copy; 2016 [@config:company_name@] | [%if [@config:company_abn@]%]ABN: [@config:company_abn@] | [%/ if%]
+                        [%if [@config:company_poaddr@]%]Address: [@config:company_poaddr@][%/ if%]
+                        </small>
+                    </address>
+                </div>
+            </div>
+            <div class="col-xs-12 text-center">
+                <br>
+                <h4 style="color:#808285;">
+                <i class="fa fa-lock"></i> Shop safely.
+                </h4>
+				[%payment_methods%]
+					[%param header%]
+						<ul class="list-inline">
+					[%end param%]
+					[%param *body%]
+						[%data id:'name' if:'like' value:'American Express'%]
+							<li>
+								<div class="payment-icon-container">
+									<div class="payment-icon payment-icon-americanexpress"></div>
+								</div>
+							</li>
+						[%end data%]
+						[%data id:'name' if:'like' value:'Visa'%]
+							<li>
+								<div class="payment-icon-container">
+									<div class="payment-icon payment-icon-visa"></div>
+								</div>
+							</li>
+						[%end data%]
+						[%data id:'name' if:'like' value:'MasterCard'%]
+							<li>
+								<div class="payment-icon-container">
+									<div class="payment-icon payment-icon-mastercard"></div>
+								</div>
+							</li>
+						[%end data%]
+						[%data id:'name' if:'like' value:'Discover'%]
+							<li>
+								<div class="payment-icon-container">
+									<div class="payment-icon payment-icon-discover"></div>
+								</div>
+							</li>
+						[%end data%]
+						[%data id:'name' if:'like' value:'Diners'%]
+							<li>
+								<div class="payment-icon-container">
+									<div class="payment-icon payment-icon-diners"></div>
+								</div>
+							</li>
+						[%end data%]
+						[%data id:'name' if:'like' value:'Cheque'%]
+							<li>
+								<div class="payment-icon-container">
+									<div class="payment-icon payment-icon-cheque"></div>
+								</div>
+							</li>
+						[%end data%]
+						[%data id:'name' if:'like' value:'Money Order'%]
+							<li>
+								<div class="payment-icon-container">
+									<div class="payment-icon payment-icon-moneyorder"></div>
+								</div>
+							</li>
+						[%end data%]
+						[%data id:'name' if:'like' value:'Direct Deposit'%]
+							<li>
+								<div class="payment-icon-container">
+									<div class="payment-icon payment-icon-directdeposit"></div>
+								</div>
+							</li>
+						[%end data%]
+						[%data id:'name' if:'like' value:'bpay'%]
+							<li>
+								<div class="payment-icon-container">
+									<div class="payment-icon payment-icon-bpay"></div>
+								</div>
+							</li>
+						[%end data%]
+						[%data id:'name' if:'like' value:'paypal'%]
+							<li>
+								<div class="payment-icon-container">
+									<div class="payment-icon payment-icon-paypal"></div>
+								</div>
+							</li>
+						[%end data%]
+					[%end param%]
+					[%param *footer%]
+						</ul>
+					[%end param%]
+				[%end payment_methods%]
+			</div>
+        </div>
+    </div>
+</div>
+
+<!-- POPUP + Cookie Script
+
+ <div id="popup-xmas" class="modal fade" style="padding-right:0px;">
+	<div class="modal-xmas-dialog modal-dialog">
+		<div class="modal-content eoys-modal">
+			<div class="modal-eoys-header">
+							<button type="button" class="eoys-modal-close" data-dismiss="modal" aria-label="Close"><span class="close-cmd" aria-hidden="true">×</span></button>
+			</div>
+			<div class="modal-row">
+				<div class="modal-center fwidth" style="text-align: center;">
+					<img src="/assets/img/ID_Web.jpg" style="max-width:100%;"></img>
+				</div>
+			</div>
+
+	</div>
+  </div>
+  </div>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
+      var cookie = getCookie("visited");
+      if (cookie == "") {
+        $('#popup-xmas').modal('show');
+        document.cookie = "visited=true";
+      }
+    });
+  </script>
+-->
+
+<!--##[%load_template file:"includes/modals.template.html"%][%END load_template%]##-->
+
+
+
+<script src="[%ntheme_asset%]gallery/js/masonry.pkgd.min.js[%END ntheme_asset%]"></script>
+<script src="[%ntheme_asset%]gallery/js/imagesloaded.js[%END ntheme_asset%]"></script>
+<script src="[%ntheme_asset%]gallery/js/classie.js[%END ntheme_asset%]"></script>
+<script src="[%ntheme_asset%]gallery/js/AnimOnScroll.js[%END ntheme_asset%]"></script>
+<script>
+  new AnimOnScroll( document.getElementById( 'grid' ), {
+    minDuration : 0.4,
+    maxDuration : 0.7,
+    viewportFactor : 0.2
+  } );
+</script>
+<!-- Required Neto Scripts - DO NOT REMOVE -->
+<script type="text/javascript" src="[$imageurl$]/js/util.js"></script>
+<script type="text/javascript" src="[%ntheme_asset%]js/jquery.min.js[%END ntheme_asset%]"></script>
+
+<script type="text/javascript" src="[%ntheme_asset%]plugins/fancybox/jquery.fancybox.pack.js[%END ntheme_asset%]"></script>
+<script type="text/javascript" src="[%ntheme_asset%]js/jquery.cookie.js[%END ntheme_asset%]"></script>
+[%NETO_JS html:'1' id:'main' /%]
+<script type="text/javascript" src="[%ntheme_asset%]js/bootstrap.min.js[%END ntheme_asset%]"></script>
+<script type="text/javascript" src="[%ntheme_asset%]js/custom.js[%END ntheme_asset%]"></script>
+<!-- script type="text/javascript"  src="[%ntheme_asset%]js/instafeed.js[%end ntheme_asset%]"></script -->
+<!-- Plugin Scripts -->
+<script type="text/javascript" src="[%ntheme_asset%]plugins/jquery_ui/js/jquery-ui-1.8.18.custom.min.js[%END ntheme_asset%]"></script>
+<!-- <script type="text/javascript" src="[%ntheme_asset%]plugins/jcarousel/js/jquery.jcarousel.min.js[%END ntheme_asset%]"></script> -->
+<script type="text/javascript" src="[%ntheme_asset%]/js/slick/slick.min.js[%end ntheme_asset%]"></script>
+
+
+[%SITE_VALUE id:'footer_javascript' type:'load'%][%END SITE_VALUE%]
+<!-- Analytics - DO NOT REMOVE -->
+[%load_template file:"trackingcode/VisitorTracking.html"%][%END load_template%]
+[%load_template file:"includes/npopup.template.html"%][%END load_template%]
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+		/*if ( $('body').is('#n_home') ){
+			//nothing
+		} else {
+			if ($.cookie('pop') == null) {
+					setTimeout(function() {
+						$('#newsletter-subscription').modal('show');
+					}, 7000);
+					$.cookie('pop', '14');
+				};
+		}*/
+
+
+	    //sticky navigation
+        $navPos = $('#mainnav').offset().top;
+        if ( $(window).width() > 768 ) {
+            $(window).scroll(function(){
+                if( $(window).scrollTop() > $navPos ) {
+                    $('#mainnav').addClass('fixed');
+                } else {
+                    $('#mainnav').removeClass('fixed');
+                } //end if
+            });
+        } //end if
+
+        //modal sizechart script
+        $("#sizeChart").on("show.bs.modal", function(e) {
+            var link = $(e.relatedTarget);
+            $(this).find(".modal-body").html('<p><a  class="red-button" href="/assets/image/sizing/size-chart.pdf" target="_blank">> Download Size Chart as PDF</a></p><br/><img src="/assets/image/sizing/chart.jpg"  alt="Make sure to choose the perfect size">');
+        });
+
+
+        //modal embroidery style script
+        $font = $('.font').val();
+        $colour = $('.colour').val();
+        $embText = $('.text').val();
+        $embResult = $('.result');
+
+        $(".text").keyup(function(){
+            $font = $('.font').val();
+            $colour = $('.colour').val();
+            $embText = $('.text').val();
+            $embResult.css({fontFamily: $font, color: $colour}).text($embText);
+            return false;
+        });
+
+        $(".colour").change(function(){
+            $font = $('.font').val();
+            $colour = $('.colour').val();
+            $embText = $('.text').val();
+            $embResult.css({fontFamily: $font, color: $colour})
+            return false;
+        });
+
+        $(".font").change(function(){
+            $font = $('.font').val();
+            $colour = $('.colour').val();
+            $embText = $('.text').val();
+            $embResult.css({fontFamily: $font, color: $colour})
+            return false;
+        });
+
+        $fontSize =  $('.result').css('fontSize').split('px')[0];
+        $('.increaseSize').click(function(){
+            $fontSizeIncreased = $fontSize ++ + 'px';
+            $embResult.css({fontSize: $fontSizeIncreased});
+            return false;
+        });
+
+        $fontSize =  $('.result').css('fontSize').split('px')[0];
+        $('.decreaseSize').click(function(){
+            $fontSizeDecreased = $fontSize -- + 'px';
+            $embResult.css({fontSize: $fontSizeDecreased});
+            return false;
+        });
+
+        // back to top fade
+		// browser window scroll (in pixels) after which the "back to top" link is shown
+		var offset = 300,
+			//browser window scroll (in pixels) after which the "back to top" link opacity is reduced
+			offset_opacity = 1200,
+			//duration of the top scrolling animation (in ms)
+			scroll_top_duration = 700,
+			//grab the "back to top" link
+			$back_to_top = $('.backtotop');
+
+		//hide or show the "back to top" link
+		$(window).scroll(function(){
+			( $(this).scrollTop() > offset ) ? $back_to_top.addClass('cd-is-visible') : $back_to_top.removeClass('cd-is-visible cd-fade-out');
+			if( $(this).scrollTop() > offset_opacity ) {
+				$back_to_top.addClass('cd-fade-out');
+			}
+		});
+
+		//smooth scroll to top
+		$back_to_top.on('click', function(event){
+			event.preventDefault();
+			$('body,html').animate({
+				scrollTop: 0 ,
+				}, scroll_top_duration
+			);
+		});
+
+		/* homepage mobile search */
+        $('.cta-search a').click(function(){
+            $(this).parents('.cta-search').slideUp('fast',function(){
+                $('.cta-search').remove();
+            });
+        });
+
+        /* category description animation */
+            if ( $('body').is('#n_category') ){
+    			[%if [@content_id@] == '39'%]
+                	$centerValue1 = $('.top-category-wrapper > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > img').height() + 50 + $('div.category-desc:nth-child(3) > ul:nth-child(1)').height();
+    			[%else%]
+    			$centerValue1 = $('.top-category-wrapper > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > h1:nth-child(2)').height() + 50 + $('div.category-desc:nth-child(3) > p:nth-child(1)').height();
+               		[%/if%]
+    			$centerValue2 = 320 - $centerValue1;
+                $centerValueDef = $centerValue2 / 2;
+
+                $('body#n_category .top-category-wrapper h1').css({marginTop: $centerValueDef, opacity:1});
+                $('div.category-desc:nth-child(3) > p:nth-child(1)').css({opacity:1});
+    			$('div.category-desc:nth-child(3) > ul:nth-child(1)').css({opacity:1});
+    			$('body#n_category .top-category-wrapper a').css({opacity:1});
+            }
+
+            if ( $('body').is('#n_content') ){
+                $centerValue1 = $('.top-category-wrapper > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > h1:nth-child(2)').height() + 50 + $('div.category-desc:nth-child(3) > p:nth-child(1)').height();
+                $centerValue2 = 320 - $centerValue1;
+                $centerValueDef = $centerValue2 / 2;
+
+                $('body#n_content .top-category-wrapper h1').css({marginTop: $centerValueDef, opacity:1});
+                $('div.category-desc:nth-child(3) > p:nth-child(1)').css({opacity:1});
+    			$('body#n_content .top-category-wrapper a').css({opacity:1});
+            }
+
+		/* Product radio button */
+		$('#n_product .specific input._itmspec_radio:checked').parent().addClass('active');
+
+		$('#n_product label._itmspec_listitm').click(function(){
+			$('label._itmspec_listitm').removeClass('active');
+			$(this).toggleClass('active');
+		});
+
+		/* chef of the month animation */
+		$currentChef = $('.chef-thumb a:first-of-type').eq('0');
+		$currentCircle = $('<div class="currentChef"></div>');
+		$currentCircle.appendTo($currentChef);
+
+		<!--##[%if [@misc5@] eq 'y' || [@misc5@]%]##-->
+			<!--##[%load_template file:"includes/embroidery-script.template.html"%][%END load_template%]##-->
+		<!--##[%/if%]##-->
+
+		if ( window.location.href.indexOf("aprons") > -1 || window.location.href.indexOf("urban-collection") > -1 ){
+			$('.filter-wrapper').delay('400').slideDown('slow');
+		}
+
+    }); //end .ready
+</script>
+
+</div>
+
+[%if [@content_id@] == '315'%]
+<!-- canvas cross back -->
+	<script>
+		$HeaderHeight = $('#topmenu').height() + $('#topmenu').height() + 104 + $('#mainnav').height();
+		$fullPageH = $(window).height() - $HeaderHeight + 'px';
+
+
+		function getRandomImage() {
+			var images = ['url(https://chefworks.com.au/assets/images/canvas-cross-back-category/ACRS602-NAV-Studio-shot.jpg)',
+						  'url(https://chefworks.com.au/assets/images/canvas-cross-back-category/ACRS602-BRO-Studio-shot.jpg)',
+						  'url(https://chefworks.com.au/assets/images/canvas-cross-back-category/ACRS602-NAT-Studio-shot.jpg)',
+						  'url(https://chefworks.com.au/assets/images/canvas-cross-back-category/ACRS602-KHA-Studio-shot.jpg)',
+						  'url(https://chefworks.com.au/assets/images/canvas-cross-back-category/ACRS602-GRY-Studio-shot.jpg)'];
+			var image = images[Math.floor(Math.random()*images.length)];
+			return image;
+		}
+
+		function displayRandomImage() {
+			var htmlImage = document.getElementById("hero");
+			htmlImage.setAttribute("style","background-image:" + getRandomImage() );
+			}
+		displayRandomImage();
+
+		$(document).ready(function(){
+		  $('.aprons-list').slick({
+			  dots: true,
+			  infinite: false,
+			  speed: 300,
+			  slidesToShow: 5,
+			  slidesToScroll: 0,
+			  responsive: [
+				{
+				  breakpoint: 768,
+				  settings: {
+					slidesToShow: 3,
+					slidesToScroll: 3
+				  }
+				},
+				{
+				  breakpoint: 480,
+				  settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1
+				  }
+				}
+				// You can unslick at a given breakpoint now by adding:
+				// settings: "unslick"
+				// instead of a settings object
+			  ]
+			});
+		});
+</script>
+
+<link rel="stylesheet" type="text/css" href="[%ntheme_asset%]/css/slick/slick.css[%end ntheme_asset%]"/>
+<link rel="stylesheet" type="text/css" href="[%ntheme_asset%]/css/slick/slick-theme.css[%end ntheme_asset%]"/>
+
+<style>
+	.full-page{
+		min-height: 800px;
+		background-position: center center;
+		background-size: cover;
+		position: relative;
+		margin-bottom: 120px;
+	}
+	.full-page h1{ font-size: 110px; margin-top: 90px;}
+	.full-page h1 span,.full-page h2 span{ background-color: rgba(255,255,255,.95)}
+	.full-page h2{ font-size: 65px; margin-bottom:50px;}
+	.full-page a{
+		position: absolute;
+		bottom: 30px;
+		left: 47%;
+		transform-origin: center;
+		width: 55px;
+		height: 55px;
+		border-radius: 100%;
+		border: 4px solid #fff;
+		background-color: rgba(0,0,0,0.3);
+		background-image: url('[%url type:'home'/%]assets/images/canvas-cross-back-category/scroll-down-arrow.png');
+		background-position: 42%;
+	}
+	.intro{margin-bottom: 120px;}
+	.apron { text-align: center;}
+	.apron img{ width: 100%;}
+	.apron .button{padding:15px 30px; width: auto; background-color: #dcddde; color:#000; border-radius: 50px; display: inline-block;}
+	.apron h4{margin-bottom: 30px;}
+
+	@media only screen and (max-width:768px) {
+		.full-page h1{ font-size: 45px;}
+		.full-page h2{ font-size: 35px;}
+		.full-page img{width:50%;}
+		.full-page{
+			min-height: 500px;
+			}
+	}
+</style>
+<!-- end canvas cross back -->
+[%/if%]
+
+[%if [@content_id@] == '321'%]
+<!-- canvas contest -->
+	<script>
+		$('#inp-title').change(function(){
+			if ( $('#inp-title').val() === "Other" ) {
+				$(this).parent().next().show();
+				$(this).parent().next().children('input').attr('required', true);
+			} else {
+				$(this).parent().next().hide();
+				$(this).parent().next().children('input').attr('required', false);
+			}
+		});
+	</script>
+<!-- end canvas contest -->
+[%/if%]
+
+   <div class="backtotop">
+   <a href="#top" title="Back to top"><i class="fa fa-arrow-up"></i></a>
+</div>
+
+</body>
+</html>

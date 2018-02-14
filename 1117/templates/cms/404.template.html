@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-header">
+                <h1>Oops. Something went wrong..</h1>
+                <p>The page you were looking for doesn't appear to exist or has moved.</p>
+            	<p><a href="[$home_url$]" class="btn btn-large btn-primary" title="Home Page"><i class="fa fa-home"></i> Home</a></p>
+            </div>
+            <img src="[%ntheme_asset%]img/404-broken-egg.jpg[%/ntheme_asset%]" alt="Page not found.">
+            <div class="cta-search">
+                <h4>Let us help you!</h4>
+                <p>What are you looking for?</p>
+                <p>    
+                    <form class="form-inline" name="productsearch" method="get" action="/">
+                        <input type="hidden" name="rf" value="kw"/>
+                            <div class="input-group">
+                               <input class="form-control ajax_search" value="<!--##[%NOHTML%][%FILTER ID:'keywords'%][%END FILTER%][%END NOHTML%]##-->" id="name_search" autocomplete="off" name="kw" type="search" onclick='this.focus();this.select()'/>
+                                <span class="input-group-btn">
+                                <button type="submit" value="Search" class="btn btn-default">Search</button>
+                            </span>
+                        </div>
+                    </form>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

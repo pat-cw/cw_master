@@ -1,0 +1,122 @@
+<!-- product/header.template -->
+<div class="row">
+    <div itemscope itemtype="http:schema.org/Product" class="wrapper-product-title col-sm-12 text-center">
+		<h1 itemprop="name">[@name@]</h1>
+		<!--##[%IF [@subtitle@]%]##-->
+		<h3 class="text-muted">[@subtitle@] | </h3>
+		<!--##[%END IF%]##-->
+        <!--##[%THUMBNAILS id:'[@SKU@]' check_parent:'y'%]##-->
+            <!--##[%PARAM *brochure%]##-->
+            <div class="text-center" style="font-size:12px;">
+                <a href="[@file@]" class="text-muted" target="_blank" title="View PDF brochure for [%NOHTML%][@name@][%END NOHTML%]"><i class="fa fa-file-o" aria-hidden="true"></i> View product information sheet</a>
+            </div>
+            <!--##[%END PARAM%]##-->
+        <!--##[%END THUMBNAILS%]##-->
+        <div style="clear:both;"></div>
+	</div>
+
+
+
+
+    <p>
+		<span class="product-sku">SKU: <span id="current-sku">[@SKU@]</span></span>
+    	<span class="product-review pull-right">
+        [%if [@reviews@] > 0 %]
+        [%set [@data:ratings-count@] = 1 /%]
+        [%while [@data:ratings-count@] <= [@data:rating@]%]
+            [%set [@data:ratings-count@] = [@data:ratings-count@]+1 /%]
+            <i class="fa fa-star"></i>
+        [%/while%]
+        [%while [@data:ratings-count@] <= 5%]
+            [%set [@data:ratings-count@] = [@data:ratings-count@]+1 /%]
+            <i class="fa fa-star-o"></i>
+        [%/while%]
+    [%else%]
+    [%/if%]
+        </span>
+        [@score@]
+    </p>
+	<!--##[%IF ![@has_child@] || [@has_variation@]%]##-->
+    <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="wrapper-pricing col-sm-12 text-center">
+        <!--##[%IF ![@inpromo@]%]##-->
+            <div class="productprice productpricetext" itemprop="price">
+                [%if [@user:group_id@] eq '5'%]
+                    <!--##[%FORMAT type:'currency'%]##-->[@store_price@]<!--##[%END FORMAT%]##-->
+                [%else%]
+                    <!--##[%FORMAT type:'currency'%]##-->[%calc [@store_price@]/1.1 /%]<!--##[%END FORMAT%]##-->
+                [%/if%]
+            </div>
+
+            <!--##[%IF [@save@] > 0%]##-->
+            <div class="productrrp text-muted">
+                    RRP <!--##[%FORMAT type:'currency'%]##-->[@retail@]<!--##[%END FORMAT%]##-->
+            </div>
+            <div class="productsave hide">
+                SAVE <!--##[%format type:'currency'%]##--> [@save_price@] <!--##[%END format%]##-->  (<!--##[%format type:'percent'%]##-->[@save@]<!--##[%END format%]##-->)
+            </div>
+            <!--##[%END IF%]##-->
+
+            <!--##[%ELSE%]##-->
+            <div class="productwasprice">
+                [%if [@user:group_id@] eq '5'%]
+                    <!-- WAS --> <!--##[%FORMAT type:'currency'%]##-->[@store_price@]<!--##[%END FORMAT%]##-->
+                [%else%]
+                    <!-- WAS --> <!--##[%FORMAT type:'currency'%]##-->[%calc [@store_price@]/1.1 /%]<!--##[%END FORMAT%]##-->
+                [%/if%]
+            </div>
+            <!--##[%IF [@save@] > 0%]##-->
+                <div class="productrrp muted">
+                    RRP <!--##[%FORMAT type:'currency'%]##-->[@retail@]<!--##[%END FORMAT%]##-->
+                </div>
+            <!--##[%END IF%]##-->
+
+            <div class="productpromo">
+                [%if [@user:group_id@] eq '5'%]
+                    <!-- NOW --> <!--##[%FORMAT type:'currency'%]##-->[@promo_price@]<!--##[%END FORMAT%]##-->
+                [%else%]
+                    <!-- NOW --> <!--##[%FORMAT type:'currency'%]##-->[%calc [@promo_price@]/1.1 /%]<!--##[%END FORMAT%]##-->
+                [%/if%]
+            </div>
+            <!--##[%IF [@save@] > 0%]##-->
+                <div class="productsave">
+                    SAVE <!--##[%format type:'percent'%]##-->[@save@]<!--##[%END format%]##-->
+                </div>
+            <!--##[%END IF%]##-->
+            <div class="productsavetext">
+                Sale Ends in <span id="sale-end" class="time"></span>
+            </div>
+            <div class="time-text">
+                <!--##[%format type:'date' format:' #H:#I #a, #d #K #Y'%]##-->[@promo_end@]<!--##[%END format%]##-->
+            </div>
+        <!--##[%END IF%]##-->
+        <!--##[%IF [@preorder@] %]##-->
+            <span itemprop="availability" content="preorder" class="label label-warning">Pre-order - Released <!--##[%format type:'date'%]##-->[@arrival_date@]<!--##[%END format%]##--></span>
+        <!--##[%ELSEIF [@store_quantity@] > 0 AND ![@preorder@] %]##-->
+            <span itemprop="availability" content="in_stock" class="label label-success instock">In Stock</span>
+        <!--##[%ELSEIF [@store_quantity@] < 1 AND [@config:ALLOW_NOSTOCK_CHECKOUT@] %]##-->
+            <span itemprop="availability" content="out_of_stock" class="label label-danger outofstock">Sold Out -  Backorder Available</span>
+        <!--##[%ELSE%]##-->
+            <span itemprop="availability" content="out_of_stock" class="label label-danger outofstock">Sold Out</span>
+        <!--##[%END IF%]##-->
+        <!--##[%IF [@availability_description@]%]##-->
+            <div class="availability_description">
+                [@availability_description@]
+            </div>
+        <!--##[%END IF%]##-->
+  <!--##[%IF [@save@] < 1%]##-->
+        <span style="color:#333; font-size:14px;">&emsp;<br class="visible-xs" style="margin-bottom:15px;"> 100 DAYS FREE Return.</span>
+        <!--##[%END IF%]##-->
+    </div>
+	<!--##[%END IF%]##-->
+</div>
+<!-- div class="wrapper-share-button">
+    <a class="addthis_button btn btn-default btn-xs" href="http://www.addthis.com/bookmark.php?v=300&amp;pubid=xa-5282cbb6476f74a0" target="_blank">
+        <strong>Share: </strong>
+        <i class="fa fa-facebook-square text-facebook"></i>
+		<i class="fa fa-twitter-square text-twitter"></i>
+		<i class="fa fa-google-plus-square text-google-plus"></i>
+		<i class="fa fa-pinterest-square text-pinterest"></i>
+		<i class="fa fa-tumblr-square text-tumblr"></i>
+    </a>
+</div -->
+<!-- end product/header.template -->

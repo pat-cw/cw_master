@@ -1,0 +1,184 @@
+<!-- search mobile modal -->
+<div class="modal fade" id="mobileSearch" tabindex="-1" role="dialog" aria-labelledby="mobileSearch" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="mobile-search">Search</h4>
+            </div>
+            <div class="modal-body">
+                <form class="navbar-form visible-xs" name="productsearch" method="get" action="/">
+                    <input type="hidden" name="rf" value="kw" />
+                    <div class="input-group">
+                        <input class="form-control ajax_search" value="[%nohtml%][%filter ID:'keywords'%][%end filter%][%end nohtml%]" autocomplete="off" name="kw" type="search"/>
+                        <span class="input-group-btn">
+                            <button type="submit" value="Search" class="btn btn-loads btn-default" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </form >
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- sizing chart modal -->
+<div class="modal fade" id="sizeChart" tabindex="-1" role="dialog" aria-labelledby="sizeChart" aria-hidden="true">
+  <div class="vertical-alignment-helper">
+  <div class="modal-dialog modal-lg vertical-align-center">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="size-chart">Size chart</h4>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+<!-- newsletter modal -->
+<!-- div class="modal fade" id="newsletter-subscription" tabindex="-1" role="dialog" aria-labelledby="newsletter-subscription" aria-hidden="true">
+	<div class="vertical-alignment-helper">
+        <div class="modal-dialog modal-md vertical-align-center">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <img src="[%ntheme_asset%]img/email-subscription-chefworks.jpg[%END ntheme_asset%]" alt="Join the family">
+                    <div class="cont">
+                        <h5>Be part of the family</h5><br>
+                        <small style="color:#fff;">Subscribe to our newsletter</small><br><br>
+                        <form action="//chefworks.us9.list-manage.com/subscribe/post?u=c9ca949d7d38387bb4b553615&amp;id=bc2f6c1373" method="post" id="mc-embedded-subscribe-form_bottom" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                            <div class="input-group">
+                                <input type="email" value="" name="EMAIL" class="form-control" id="mce-EMAIL_bottom" placeholder="email address" required>
+                                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                <!-- div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_c9ca949d7d38387bb4b553615_bc2f6c1373" tabindex="-1" value=""></div>
+                                <span class="input-group-btn">
+                                <input class="btn btn-default" type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe_bottom">
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+</div -->
+
+<!-- embroidery test modal -->
+<div class="modal fade" id="embroideryTest" tabindex="-1" role="dialog" aria-labelledby="embroideryTest" aria-hidden="true">
+    <div class="vertical-alignment-helper">
+  <div class="modal-dialog modal-lg vertical-align-center">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="embroidery-test">Embroidery Tester</h4>
+      </div>
+      <div class="modal-body">
+          Do you wonder how your garment will look like?<br>
+          Choose Font and Colour, then type the text you would like to embroider!
+          <hr>
+          <form>
+            <div class="select">
+                <label>Font</label>
+                <select name="font" class="font">
+                  <option value="typoupright_btregular">Typo Upright</option>
+                  <option value="BlockSpanish">Garmond Bold</option>
+                  <option value="CenturyCP">Century Schoolbook</option>
+                  <option value="braddon">Cajun Block</option>
+                  <option value="CapitalScript">Brush Script</option>
+                </select>
+            </div>
+
+            <div class="select" style="float:right;">
+                <label>Colour</label>
+                <select name="colour" class="colour">
+                  <option value="#000" style="color:#000;">Black</option>
+                  <option value="#653b2c" style="color:#653b2c;">Dark Brown PMS 477C</option>
+                  <option value="#84332e" style="color:#84332e;">Brown PMS 181C</option>
+                  <option value="#945022" style="color:#945022;">Copper PMS 724C</option>
+                  <option value="#b06f29" style="color:#b06f29;">Bronze PMS 139C</option>
+                  <option value="#006649" style="color:#006649;">Emerald PMS 342C</option>
+                  <option value="#7da8ae" style="color:#006649;">Turquoise PMS 5493C</option>
+                  <option value="#857650" style="color:#857650;">Metal Gold PMS 871C</option>
+                  <option value="#c7932c" style="color:#c7932c;">Matt Gold PMS 871C</option>
+                  <option value="#e1c19f" style="color:#e1c19f;">Beige PMS 726C</option>
+                  <option value="#00764b" style="color:#00764b;">Green PMS 3415C</option>
+                  <option value="#80bd41" style="color:#80bd41;">Lime PMS 376C</option>
+                  <option value="#9acb40" style="color:#9acb40;">Fluro</option>
+                  <option value="#b7dbd3" style="color:#b7dbd3;">Pale Blue PMS 566C</option>
+                  <option value="#55c1ea" style="color:#55c1ea;">Cyan PMS 2985C</option>
+                  <option value="#1f3e7c" style="color:#1f3e7c;">Dark Royal PMS 2069C</option>
+                  <option value="#1d4387" style="color:#1d4387;">Light Royal PMS 661C</option>
+                  <option value="#447cbf" style="color:#447cbf;">Denim PMS 660C</option>
+                  <option value="#00bfdd" style="color:#00bfdd;">Aqua Blue PMS 311C</option>
+                  <option value="#0063a7" style="color:#0063a7;">Mid Blue PMS 300C</option>
+                  <option value="#236093" style="color:#236093;">Navy PMS 647C</option>
+                  <option value="#613494" style="color:#613494;">Purple PMS 267C</option>
+                  <option value="#802347" style="color:#802347;">Burgundy PMS 216C</option>
+                  <option value="#8b2433" style="color:#8b2433;">Merlot PMS 202C</option>
+                  <option value="#cf202f" style="color:#cf202f;">Red PMS 186C</option>
+                  <option value="#fdb527" style="color:#fdb527;">Yellow PMS 123C</option>
+                  <option value="#f99d26" style="color:#f99d26;">Pale Orange PMS 1375C</option>
+                  <option value="#e55625" style="color:#e55625;">Orange PMS 166C</option>
+                  <option value="#f7b5cc" style="color:#f7b5cc;">Pale Pink PMS 1895C</option>
+                  <option value="#dd8898" style="color:#dd8898;">Deep Pink PMS 493C</option>
+                </select>
+            </div>
+            <div class="clearfix"></div>
+            <br>
+            <div>
+                <label>Text</label>
+                <textarea name="emb-text" placeholder="Type your text" rows="1" draggable="false" class="text"></textarea>
+            </div>
+            <div class="clearfix"></div>
+             <hr>
+             <a href="javascript:void(0);" title="Increase preview size" class="increaseSize" style="display:inline-block; padding:7px; border:1px solid #ccc; border-radius:3px;"><i class="fa fa-plus"></i><i class="fa fa-font"></i></a> <a href="javascript:void(0);" title="Decrease preview size" class="decreaseSize" style="display:inline-block; padding:7px; border:1px solid #ccc; border-radius:3px;"><i class="fa fa-minus"></i><i class="fa fa-font"></i></a>
+            <br>
+            <br>
+            <div class="text-center">
+                <h4>Your embroidery will look like this</h4>
+                <p class="result" style="font-size:40px; font-family:typoupright_btregular; color:#000;">The preview will apear here</p>
+            </div>
+          </form>
+          <hr>
+          <p><small>*For the full list of font available please visit <a href="[%url id:'207' https:'1' /%]">Personalised garments</a> page.</small></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+<!-- embroidery test modal -->
+<div class="modal fade" id="logo-upload" tabindex="-1" role="dialog" aria-labelledby="logo-upload" aria-hidden="true">
+    <div class="vertical-alignment-helper">
+  <div class="modal-dialog modal-md vertical-align-center">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="embroidery-test">Please note</h4>
+      </div>
+      <div class="modal-body text-center">
+          	<p>Please note:<br>You'll be prompted to upload your logo after you complete the checkout process.</p>
+          	<p>
+          	Please make sure to upload a High Resolution PDF, JPG, PNG file or EPS, AI, CDR vector file.<br>
+			This will ensure there are no delays in production.<br>
+			Should you require graphic design assistance our graphics team is available to assist at $65 per hr.
+          </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Got it!</button>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>

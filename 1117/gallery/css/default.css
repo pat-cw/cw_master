@@ -1,0 +1,303 @@
+/* General Demo Style */
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+@font-face {
+	font-family: 'codropsicons';
+	src:url('../fonts/codropsicons/codropsicons.eot');
+	src:url('../fonts/codropsicons/codropsicons.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/codropsicons/codropsicons.woff') format('woff'),
+		url('../fonts/codropsicons/codropsicons.ttf') format('truetype'),
+		url('../fonts/codropsicons/codropsicons.svg#codropsicons') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+*, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+body, html { font-size: 100%; padding: 0; margin: 0;}
+
+/* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
+.clearfix:before, .clearfix:after { content: " "; display: table; }
+.clearfix:after { clear: both; }
+
+body {
+	font-family: 'Lato', Calibri, Arial, sans-serif;
+	color: #6b7381;
+	background: #f2f2f2;
+}
+
+a {
+	color: #aaa;
+	text-decoration: none;
+}
+
+a:hover,
+a:active {
+	color: #333;
+}
+
+/* Header Style */
+.container > header {
+	margin: 0 auto;
+	padding: 2em;
+}
+
+.container > header {
+	text-align: center;
+	background: rgba(0,0,0,0.01);
+}
+
+.container > header h1 {
+	font-size: 2.625em;
+	line-height: 1.3;
+	margin: 0;
+	font-weight: 300;
+}
+
+.container > header span {
+	display: block;
+	font-size: 60%;
+	opacity: 0.8;
+	padding: 0 0 0.6em 0.1em;
+}
+
+/* To Navigation Style */
+.codrops-top {
+	background: #fff;
+	background: rgba(255, 255, 255, 0.8);
+	text-transform: uppercase;
+	width: 100%;
+	font-size: 0.69em;
+	line-height: 2.2;
+}
+
+.codrops-top a {
+	padding: 0 1em;
+	letter-spacing: 0.1em;
+	color: #6b7381;
+	display: inline-block;
+}
+
+.codrops-top a:hover {
+	color: #424b5a;
+	background: rgba(255,255,255,1);
+}
+
+.codrops-top span.right {
+	float: right;
+}
+
+.codrops-top span.right a {
+	float: left;
+	display: block;
+}
+
+.codrops-icon:before {
+	font-family: 'codropsicons';
+	margin: 0 4px;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+
+.codrops-icon-drop:before {
+	content: "\e001";
+}
+
+.codrops-icon-prev:before {
+	content: "\e004";
+}
+
+/* Demo Buttons Style */
+.codrops-demos {
+	padding-top: 1em;
+	font-size: 0.9em;
+}
+
+.codrops-demos a {
+	display: inline-block;
+	margin: 0.5em;
+	padding: 0.7em 1.1em;
+	border: 3px solid #6b7381;
+	color: #6b7381;
+	font-weight: 700;
+}
+
+.codrops-demos a:hover,
+.codrops-demos a.current-demo,
+.codrops-demos a.current-demo:hover {
+	opacity: 0.6;
+}
+
+@media screen and (max-width: 25em) {
+
+	.codrops-icon span {
+		display: none;
+	}
+
+}
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,500,700);
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+figure.snip1477 {
+  font-family: 'Raleway', Arial, sans-serif;
+  position: relative;
+  float: left;
+  overflow: hidden;
+
+  width: 100%;
+  color: #ffffff;
+  font-size: 12px;
+  background-color: #000000;
+}
+figure.snip1477 *,
+figure.snip1477 *:before,
+figure.snip1477 *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.55s ease;
+  transition: all 0.55s ease;
+}
+figure.snip1477 img {
+  max-width: 100%;
+  backface-visibility: hidden;
+  vertical-align: top;
+  opacity: 0.9;
+}
+figure.snip1477 .title {
+  position: absolute;
+  top: 58%;
+  left: 5%;
+  padding: 5px 10px 10px;
+}
+figure.snip1477 .title2 {
+  position: absolute;
+  top: 58%;
+  right: 5%;
+  padding: 5px 10px 10px;
+}
+
+/* Horizontal Lines */
+
+figure.snip1477 .title:before,
+figure.snip1477 .title:after {
+  height: 2px;
+  width: 400px;
+  position: absolute;
+  content: '';
+  background-color: #ffffff;
+}
+figure.snip1477 .title:before {
+  top: 0;
+  left: 10px;
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+}
+
+
+figure.snip1477 .title:after {
+  bottom: 0;
+  right: 200px;
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+
+/* Vertical Lines
+
+figure.snip1477 .title div:before,
+figure.snip1477 .title div:after {
+  width: 2px;
+  height: 300px;
+  position: absolute;
+  content: '';
+  background-color: #ffffff;
+}
+figure.snip1477 .title div:before {
+  top: 10px;
+  right: 0;
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+}
+figure.snip1477 .title div:after {
+  bottom: 10px;
+  left: 0;
+  -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
+}*/
+
+figure.snip1477 h2,
+figure.snip1477 h4 {
+  margin: 0;
+  text-transform: uppercase;
+}
+figure.snip1477 h2 {
+  font-weight: 400;
+}
+figure.snip1477 h4 {
+  display: block;
+  font-weight: 700;
+  background-color: #ffffff;
+  padding: 3px 3px;
+  color: #000000;
+	font-size: 12px;
+	text-align: right;
+}
+figure.snip1477 figcaption {
+  position: absolute;
+  bottom: 42%;
+  left: 25px;
+  text-align: left;
+  opacity: 0;
+  padding: 5px 60px 5px 10px;
+  font-size: 0.8em;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+}
+figure.snip1477 figcaption p {
+  margin: 0;
+}
+figure.snip1477 a {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+figure.snip1477:hover img,
+figure.snip1477.hover img {
+  zoom: 1;
+  filter: alpha(opacity=35);
+  -webkit-opacity: 0.35;
+  opacity: 0.35;
+}
+figure.snip1477:hover .title:before,
+figure.snip1477.hover .title:before,
+figure.snip1477:hover .title:after,
+figure.snip1477.hover .title:after,
+figure.snip1477:hover .title div:before,
+figure.snip1477.hover .title div:before,
+figure.snip1477:hover .title div:after,
+figure.snip1477.hover .title div:after {
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+figure.snip1477:hover .title:before,
+figure.snip1477.hover .title:before,
+figure.snip1477:hover .title:after,
+figure.snip1477.hover .title:after {
+  -webkit-transition-delay: 0.15s;
+  transition-delay: 0.15s;
+}
+figure.snip1477:hover figcaption,
+figure.snip1477.hover figcaption {
+  opacity: 1;
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+}
+.h2-wht {
+	color:white;
+	font-size:16px;
+	text-shadow: 4px 0px 10px rgba(0, 0, 0, 0.8);
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="[%url_info name:'meta_keywords'%][%end url_info%]"/>
+<meta name="description" content="[%url_info name:'meta_description'%][%end url_info%]"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta property="og:image" content="[%if [@config:current_page_type@] eq 'product'%][%asset_url type:'product' id:'[@SKU@]' thumb:'full'%][%end asset_url%][%ELSEIF [@config:current_page_type@] eq 'content'%][%ASSET_url type:'content' id:'[@content_id@]' default:'/assets/website_logo.png'%][%end ASSET_url%][%ELSE%]/assets/website_logo.png[%end if%]"/>
+<meta property="og:title" content="[%url_info name:'page_title'%][%end url_info%]"/>
+<meta property="og:site_name" content="[@config:website_name@] "/>
+[@config:GOOGLE_VERIFICATION_CODE@]
+<title>[%url_info name:'page_title'%][%end url_info%]</title>
+<link rel="canonical" href="[@config:canonical_url@]"/>
+<link rel="shortcut icon" href="[@config:homeurl@]/assets/favicon_logo.png"/>
+<link class="theme-selector" rel="stylesheet" type="text/css" href="[%ntheme_asset%]css/app.css[%end ntheme_asset%]" media="all"/>
+<link rel="stylesheet" type="text/css" href="[%ntheme_asset%]css/style.css[%end ntheme_asset%]" media="all"/>
+<link rel="stylesheet" type="text/css" href="[%ntheme_asset%]plugins/fancybox/jquery.fancybox.css[%end ntheme_asset%]"/>
+<!-- link href="//fonts.googleapis.com/css?family=Lato:400,300" rel="stylesheet" type="text/css" -->
+<link href='http://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+<!--[if lte IE 8]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+[%tracking_code type:'Declaration'%][%end tracking_code%]
+</head>
+<body id="n_[@config:current_page_type@]">
+   

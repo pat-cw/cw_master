@@ -1,0 +1,59 @@
+<!-- thumb/product/template | single product list -->
+<!--##[%CACHE type:'gallery' id:'[@inventory_id@]'%]##-->
+
+<div class="wrapper-thumbnail col-xs-6 col-sm-3 col-md-3 col-lg-3">
+	<div class="thumbnail" itemscope itemtype="http://schema.org/Product">
+		[%if [@misc9@] and [@misc8@] eq 'true'%]
+				<img class="best-seller" src="[%url type:'home'/%]assets/images/best-seller.png" alt="Best seller!">
+				<img class="new-product-dbl" src="[%url type:'home'/%]assets/images/new-product.png" alt="New product!">
+		[%elseif [@misc9@]%]
+		<img class="best-seller" src="[%url type:'home'/%]assets/images/best-seller.png" alt="Best seller!">
+		[%elseif [@misc8@]%]
+		<img class="new-product" src="[%url type:'home'/%]assets/images/new-product.png" alt="New product!">
+		[%/if%]
+		[%if [@misc7@]%]
+		<img class="on-sale hide" src="[%url type:'home'/%]assets/images/on-sale.jpg" alt="On sale!">
+		[%/if%]
+		<a href="[@URL@]" class="thumbnail-image">
+			<img src="[%asset_url type:'product' thumb:'thumb' id:'[@SKU@]'%][%param default%][%NTHEME_ASSET%]img/default_product.gif[%END NTHEME_ASSET%][%end param%][%END asset_url%]" class="product-image" alt="[@model@]" rel="itmimg[@SKU@]">
+		</a>
+
+		<div class="caption">
+			<h3 itemprop="name"><a href="[@URL@]" title="[@model@]"><!--##[%format type:'text' maxlength:'50' rmhtml:'1'%]##-->[@model@]<!--##[%END FORMAT%]##--></a></h3>
+			<p class="price acent pline" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+				<span style="display:none;"><!--##[%IF [@has_child@]%]##-->From <!--##[%END IF%]##--></span>
+				<!--##[%IF [@inpromo@]%]##-->
+					<strong>Now</strong>
+					<span itemprop="price">
+						[%if [@user:group_id@] eq '5'%]
+						<!--##[%format type:'currency'%]##-->[@promo_price@]<!--##[%END format%]##-->
+						[%else%]
+							<!--##[%format type:'currency'%]##-->[%calc [@promo_price@]/1.1 /%]<!--##[%END format%]##-->
+						[%/if%]
+					</span>
+				<!--##[%ELSE%]##-->
+					<span itemprop="price">
+						[%if [@user:group_id@] eq '5'%]
+							<!--##[%format type:'currency'%]##-->[@store_price@]<!--##[%END format%]##-->
+						[%else%]
+							<!--##[%format type:'currency'%]##-->[%calc [@store_price@]/1.1 /%]<!--##[%END format%]##-->
+						[%/if%]
+					</span>
+				<!--##[%END IF%]##-->
+			</p>
+		</div>
+		<div class="savings-container">
+			<!--##[%IF [@inpromo@]%]##-->
+				<span class="label label-danger">On Sale</span>
+			<!--##[%END IF%]##-->
+			<!--##[%IF [@save@] > 0 AND ![@has_child@] %]##-->
+				<span class="hide label label-warning">
+				<!--##[%format type:'percent'%]##-->[@save@]<!--##[%END format%]##--> OFF</span>
+			<!--##[%END IF%]##-->
+			<!--##[%IF [@save@] > 0%]##-->
+				<span class="label label-default">RRP <!--##[%format type:'currency'%]##-->[@retail@]<!--##[%END format%]##--></span>
+			<!--##[%END IF%]##-->
+		</div>
+	</div>
+</div>
+<!--##[%END CACHE%]##-->

@@ -1,0 +1,212 @@
+[%if [@content_id@] == '321'%]
+<style>
+	#contestform{
+		background: rgba(255,255,255,1);
+		padding: 30px 30px 20px;
+		border-radius: 3px;
+		box-shadow: 0px 2px 3px rgba(0,0,0,.3);
+		}
+	#canvas-contest-title{
+		font-size: 50px;
+		color: #fff;
+		text-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+		}
+	.wrapper-footer{
+		margin-top: 0;
+	}
+</style>
+<!-- 321 -->
+<div class="top-category-wrapper positive hide" style="background-image:url([%asset_url type:'content' id:'[@content_id@]' default:''/%]); background-size:cover; background-position:center center; height:400px;">
+    <div class="container">
+        <div class="row">
+        	<div class="col-sm-12 no-description">
+                <br />
+                <h1>
+                    <!--##[%url_info name:'page_heading' if:'eq' value:''%]
+                        [%PARAM if_true%]##-->
+                        [@content_name@]
+                        <!--##[%END PARAM%]
+                        [%PARAM if_false%]##-->
+                        <!--##[%url_info name:'page_heading'%][%end url_info%]##-->
+                        <!--##[%END PARAM%]
+                    [%end url_info%]##-->
+
+                    <!--##[%IF [@keywords@] == ''%]##-->
+                        <!--##[%FILTER ID:'keywords' if:'ne' value:''%]##--><!--##[%NOHTML%][%FILTER ID:'keywords'%][%END FILTER%][%END NOHTML%]##--><!--##[%END FILTER%]##-->
+                    <!--##[%END IF%]##-->
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- image category -->
+    <div style="color:#fff; display:none;"><img style="width:100%;" src="[%asset_url type:'content' id:'[@content_id@]' default:''/%]" alt="[@content_name@] - Chef Works"></div>
+<!-- end image category -->
+
+<!-- breadcrumb-wrapper -->
+<div class="breadcrumb-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <!-- breadcrumb -->
+                <!--##[%breadcrumb%]
+                    [%PARAM *header%]##-->
+                        <ul class="breadcrumb">
+                            <li>
+                                <a href="[$home_url$]">Home</a>
+                            </li>
+                    <!--##[%END PARAM%]
+                    [%PARAM *body%]##-->
+                        <li>
+                            <a href="[@url@]">[@name@]</a>
+                        </li>
+                    <!--##[%END PARAM%]
+                    [%PARAM *footer%]##-->
+                        </ul>
+                <!--##[%END PARAM%] [%END breadcrumb%]##-->
+                <!-- end breadcrumb -->
+            </div>
+        </div> <!-- end row -->
+    </div>
+</div>
+<!-- end breadcrumb-wrapper -->
+
+<div class="container-fluid" style="background-image:url([%asset_url type:'content' id:'[@content_id@]' default:''/%]); background-size:cover; background-position:center center;">
+    <div class="row">
+        <div class="col-sm-6">
+			<div class="row" style="padding-bottom:100px;">
+				
+			</div>
+			<div class="row">
+				<div class="col-sm-6 col-sm-offset-3">
+					<h1 id="canvas-contest-title">[@content_name@]</h1>
+					<p>[@content_description1@]</p>
+				</div>
+			</div>
+   		</div>
+    	<div class="col-sm-6">
+            
+            <p>
+            [@content_short_description1@]
+            [@content_short_description2@]
+            [@content_short_description3@]
+            </p>
+
+            <p>
+            [%parse%]
+                [@content_description2@]
+                [@content_description3@]
+            [%/ parse%]
+            </p>
+            
+            <!--##[%THUMB_LIST type:'content' content_type:'' template:'' limit:'20'%]
+            [%PARAM *header%]##-->
+
+            <!--##[%END PARAM%][%PARAM FOOTER%]##-->
+            
+            <!--##[%END PARAM%][%END THUMB_LIST%]##-->
+        </div>       
+        
+    </div>
+    <br>
+    <br>
+</div>
+[%/if%]
+
+[%if [@content_id@] == '322'%]
+<style>
+	#contestform{
+		background: rgba(255,255,255,1);
+		padding: 30px 30px 20px;
+		border-radius: 3px;
+		box-shadow: 0px 2px 3px rgba(0,0,0,.3);
+		}
+	#canvas-contest-title{
+		font-size: 50px;
+		color: #fff;
+		text-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+		}
+	.wrapper-footer{
+		margin-top: 0;
+	}
+</style>
+<!-- 322 -->
+<div class="top-category-wrapper positive hide" style="background-image:url([%asset_url type:'content' id:'[@content_id@]' default:''/%]); background-size:cover; background-position:center center; height:400px;">
+    <div class="container">
+        <div class="row">
+        	<div class="col-sm-12 no-description">
+                <br />
+                <h1>
+                    <!--##[%url_info name:'page_heading' if:'eq' value:''%]
+                        [%PARAM if_true%]##-->
+                        [@content_name@]
+                        <!--##[%END PARAM%]
+                        [%PARAM if_false%]##-->
+                        <!--##[%url_info name:'page_heading'%][%end url_info%]##-->
+                        <!--##[%END PARAM%]
+                    [%end url_info%]##-->
+
+                    <!--##[%IF [@keywords@] == ''%]##-->
+                        <!--##[%FILTER ID:'keywords' if:'ne' value:''%]##--><!--##[%NOHTML%][%FILTER ID:'keywords'%][%END FILTER%][%END NOHTML%]##--><!--##[%END FILTER%]##-->
+                    <!--##[%END IF%]##-->
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- image category -->
+    <div style="color:#fff; display:none;"><img style="width:100%;" src="[%asset_url type:'content' id:'[@content_id@]' default:''/%]" alt="[@content_name@] - Chef Works"></div>
+<!-- end image category -->
+
+<!-- breadcrumb-wrapper -->
+<div class="breadcrumb-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <!-- breadcrumb -->
+                <!--##[%breadcrumb%]
+                    [%PARAM *header%]##-->
+                        <ul class="breadcrumb">
+                            <li>
+                                <a href="[$home_url$]">Home</a>
+                            </li>
+                    <!--##[%END PARAM%]
+                    [%PARAM *body%]##-->
+                        <li>
+                            <a href="[@url@]">[@name@]</a>
+                        </li>
+                    <!--##[%END PARAM%]
+                    [%PARAM *footer%]##-->
+                        </ul>
+                <!--##[%END PARAM%] [%END breadcrumb%]##-->
+                <!-- end breadcrumb -->
+            </div>
+        </div> <!-- end row -->
+    </div>
+</div>
+<!-- end breadcrumb-wrapper -->
+
+<div class="container-fluid" style="background-image:url([%asset_url type:'content' id:'[@content_id@]' default:''/%]); background-size:cover; background-position:center center; min-height: 700px;">
+    <div class="row">
+        <div class="col-sm-12">
+        	<div class="row" style="padding-bottom:200px;">
+			</div>
+			<h1 id="canvas-contest-title" class="text-center">Thank you!</h1>
+  			<div class="row" style="padding-bottom:40px;">
+			</div>
+   		</div>
+   		<div class="col-sm-4 col-sm-offset-4" style="background: #fff; padding: 18px; border-radius: 3px; box-shadow: 0px 1px 3px rgba(0,0,0,0.3);">
+        	<p>We've received your entry!
+  			</p>
+			<p>Stay tuned, the winner will be announced on Chef Works Facebook and Instagram on 27/02/17.</p>
+   		</div>
+   		<div class="col-sm-4 col-sm-offset-4">
+   			<div class="row" style="padding-bottom:40px;">
+			</div>
+			<p class="text-center"><a href="https://www.chefworks.com.au" class="btn btn-primary">Continue shopping</a></p>
+   		</div>
+    </div>
+    <br>
+    <br>
+</div>
+[%/if%]

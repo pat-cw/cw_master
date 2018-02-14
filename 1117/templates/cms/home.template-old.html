@@ -1,0 +1,354 @@
+<div class="container">
+    <div class="col-sm-12">
+        <div class="row margin15">
+            <div class="col-sm-12 col-md-9">
+                <!-- carousel -->
+                [%ADVERT type:'text' template:'carousel' limit:'10' ad_group:''%]
+                    [%PARAM *header%]
+                        <div id="myCarouselBanner" class="carousel slide">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                [%SITE_VALUE id:'counter' type:'load'%][%END SITE_VALUE%]
+                            </ol>
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                    [%END PARAM%]
+                    [%PARAM *footer%]
+                            </div>
+                            <!-- Controls -->
+                            <a class="left carousel-control" href="#myCarouselBanner" data-slide="prev">
+                                <span class="fa fa-chevron-left"></span>
+                            </a>
+                            <a class="right carousel-control" href="#myCarouselBanner" data-slide="next">
+                                <span class="fa fa-chevron-right"></span>
+                            </a>
+                        </div>
+                    [%END PARAM%]
+                    [%PARAM *ifempty%]
+                    <!-- Start Example Carousel -->
+                    <div id="myCarouselBanner" class="carousel slide">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarouselBanner" data-slide-to="0" class="active"></li><li data-target="#myCarouselBanner" data-slide-to="1" ></li>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <div id="0" class="item active">
+                                <a href="http://docs.neto.com.au/article/website-carousel" target="_blank">
+                                    <img src="[%ntheme_asset%]img/banner.jpg[%end ntheme_asset%]" class="home-banner-item" alt="Welcome to your store!" border="0" >
+                                </a>
+                                <div class="carousel-caption">
+                                    <h2 class="hidden-xs">Edit This Carousel</h2>
+                                        <h4 class="hidden-xs">Click on the button below for instructions on how to edit this home page advert carousel.</h4>
+                                        <p><a href="http://docs.neto.com.au/article/website-carousel" class="btn btn-primary" target="_blank">Carousel Instructions</a></p>
+                                </div>
+                            </div>
+                            <div id="1" class="item ">
+                                <a href="[$home_url$]/_cpanel?item=adw&page=view&id=New&plan_id=1" target="_blank">
+                                    <img src="[%ntheme_asset%]img/banner.jpg[%end ntheme_asset%]" class="home-banner-item" alt="Welcome to your store!" border="0" >
+                                </a>
+                                <div class="carousel-caption">
+                                    <h2 class="hidden-xs">Sample Image &amp; Text Advert</h2>
+                                    <h4 class="hidden-xs">This is a sample image &amp; text advert. You can replace this by creating your own image &amp; text ad by clicking the button below. Add multiple to activate the scrolling carousel.</h4>
+                                    <p><a href="[$home_url$]/_cpanel?item=adw&page=view&id=New&plan_id=1" class="btn btn-primary" target="_blank">Add New Image &amp; Text Ad</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end Wrapper for slides -->
+
+                        <!-- Controls -->
+                        <a class="left carousel-control" href="#myCarouselBanner" data-slide="prev">
+                            <span class="fa fa-chevron-left"></span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarouselBanner" data-slide="next">
+                            <span class="fa fa-chevron-right"></span>
+                        </a>
+                        <!-- end Controls -->
+                    </div>
+                    <!-- End Example Carousel -->
+                [%END PARAM%]
+            [%END ADVERT%]
+            <!-- end carousel -->
+            </div>
+
+            <div class="col-sm-3 text-center hidden-sm hidden-xs">
+                <div class="cta">
+                    <img src="assets/images/temp_staging/temp-cotm.jpg" alt="Chef of the month">
+                    <div class="cotm-cont">
+                        <p><a href="">Monty Koludrovic<br>Chef of the Month | May 2015</a>
+                        <p><a href="" class="btn">MEET THE CHEF</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row margin15">
+            <div class="col-xs-4 col-sm-4">
+                <div class="cta">
+                    <a href="#" title="Add title">
+                        <img src="assets/images/temp_staging/img.jpg">
+                    </a>
+                    <h2><a href="#" title="Add title">Denim aprons <i class="fa fa-chevron-right hidden-xs"></i></a></h2>
+                </div>
+            </div>
+
+            <div class="col-xs-4 col-sm-4">
+                <div class="cta">
+                    <a href="#" title="Add title">
+                        <img src="assets/images/temp_staging/img.jpg">
+                    </a>
+                    <h2><a href="#" title="Add title">Chef Jackets <i class="fa fa-chevron-right hidden-xs"></i></a></h2>
+                </div>
+            </div>
+
+            <div class="col-xs-4 col-sm-4">
+                <div class="cta">
+                    <a href="#" title="Add title">
+                        <img src="assets/images/temp_staging/img.jpg">
+                    </a>
+                    <h2><a href="#" title="Add title">Chef Pants <i class="fa fa-chevron-right hidden-xs"></i></a></h2>
+                </div>
+            </div>
+        </div>
+
+        <br><br><br class="hidden-xs"><br class="hidden-xs">
+
+        <!-- catagories -->
+        <div class="row margin15">
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="cta categories">
+                    <a href="#" title="Add title">
+                        <img src="assets/images/temp_staging/img.jpg" height="500px">
+                    </a>
+                    <section class="text-center">
+                        <h2><a href="#" title="Add title">Denim aprons<a></h2>
+                        <ul>
+                            <li><a href="#" title="Categoru">Category name</a></li>
+                            <li><a href="#" title="Categoru">Category name</a></li>
+                            <li><a href="#" title="Categoru">Category name</a></li>
+                            <li><a href="#" title="Categoru">Category name</a></li>
+                            <li><a href="#" title="Categoru">Category name</a></li>
+                            <li><a href="#" title="Categoru">Category name</a></li>
+                            <li><a href="#" title="Categoru">Category name</a></li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="cta categories">
+                    <a href="#" title="Add title">
+                        <img src="assets/images/temp_staging/img.jpg" height="500px">
+                    </a>
+                    <section class="text-center">
+                        <h2><a href="#" title="Add title">Denim aprons<a></h2>
+                        <ul>
+                            <li><a href="#" title="Categoru">Category name</a></li>
+                            <li><a href="#" title="Categoru">Category name</a></li>
+                            <li><a href="#" title="Categoru">Category name</a></li>
+                            <li><a href="#" title="Categoru">Category name</a></li>
+                            <li><a href="#" title="Categoru">Category name</a></li>
+                            <li><a href="#" title="Categoru">Category name</a></li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="cta categories">
+                    <a href="#" title="Add title">
+                        <img src="assets/images/temp_staging/img.jpg" height="500px">
+                    </a>
+                    <section class="text-center">
+                        <h2><a href="#" title="Add title">Denim aprons<a></h2>
+                        <ul>
+                            <li><a href="#" title="Categoru">Category name</a></li>
+                            <li><a href="#" title="Categoru">Category name</a></li>
+                            <li><a href="#" title="Categoru">Category name</a></li>
+                            <li><a href="#" title="Categoru">Category name</a></li>
+                            <li><a href="#" title="Categoru">Category name</a></li>
+                            <li><a href="#" title="Categoru">Category name</a></li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+
+        </div>
+        <!-- end catagories -->
+    </div>
+</div>
+                    
+</div>
+</div> <!-- end container -->
+
+                
+<div class="divider-hp">
+                
+</div>
+<!-- br><br><br><br -->
+
+<div class="gray-area">
+                
+    <!-- fabric guide -->
+    <div class="fabric-guide">
+        <section class="container text-center">
+            <h2>GUIDE TO FABRIC ICONS</h2>
+            <br><br>
+            <div class="row">
+                <div class="col-sm-6 col-md-3 test-center single-fabric">
+                    <div class="icon-fabric-wrapper">
+                        <p>
+                            <img src="assets/images/Chef-Works-Australia-Lite-Fabric.png" alt="Chef Works Australia Lite fabric">
+                    </div>
+                        <ul>
+                            <li>130g fine twill fabric</li>
+                            <li>Comfortable and lightweight</li>
+                            <li>Available in a variety of colours</li>
+                        </ul>
+                </div>
+                <div class="col-sm-6 col-md-3 test-center single-fabric">
+                    <div class="icon-fabric-wrapper">
+                        <p>
+                            <img src="assets/images/Chef-Works-Australia-Cool-Vent-Fabric.png" alt="Chef Works Australia Cool Vent fabric">
+                    </div>
+                        <ul>
+                            <li>Wicks heat and moisture away from skin</li>
+                            <li>Allows cool air back through to body</li>
+                            <li>Encourages evaporation</li>
+                            <li>Cool and comfortable</li>
+                            <li>Award-winning fabric technology</li>
+                        </ul>
+                </div>
+                <div class="col-sm-6 col-md-3 test-center single-fabric">
+                    <div class="icon-fabric-wrapper">
+                        <p>
+                            <img src="assets/images/Chef-Works-Australia-Super-Combed-Fabric.png" alt="Chef Works Australia Super Combed fabric">
+                    </div>
+                        <ul>
+                            <li>100% cotton</li>
+                            <li>Longer garment lifespan</li>
+                            <li>Pre-shrunk for accurate fit</li>
+                            <li>Luxurious and refined feel for extreme comfort</li>
+                            <li>Silky texture and appearance</li>
+                        </ul>
+                </div>
+                <div class="col-sm-6 col-md-3 test-center single-fabric">
+                    <div class="icon-fabric-wrapper">
+                        <p>
+                            <img src="assets/images/Chef-Works-Australia-100-Cotton-Fabric.png" alt="Chef Works Australia 100% Cotton fabric">
+                    </div>
+                        <ul>
+                            <li>Made from 100% cotton</li>
+                            <li>All natural fibers</li>
+                            <li>Comfortable and breathable</li>
+                        </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- end fabric guide -->        
+
+    <br><br><br><br>
+
+    <!-- catalogues -->
+    <div class="catalogues">
+        <section class="container text-center">
+            <h2>OUR CATALOGUES</h2>
+            <br>
+            <div class="row">
+                <div class="col-xs-4 col-sm-4">
+                    <a href="#" title=""><img src="assets/images/chef-works-australia-catalague.jpg" alt=""></a>
+                    <br>
+                        <h4>Catalogue Vol.14</h4>
+                        <ul class="catalogue-tools hidden-xs">
+                            <li><a href="#" title=""><i class="fa fa-eye"></i> Browse</a></li>
+                            <li><a href="#" title=""><i class="fa fa-cloud-download"></i> Download</a></li>
+                        </ul>
+                </div>
+
+                <div class="col-xs-4 col-sm-4">
+                    <a href="#" title=""><img src="assets/images/chef-works-australia-women-collection-catalague.jpg" alt=""></a>
+                    <br>
+                        <h4>Womens Catalogue</h4>
+                        <ul class="catalogue-tools hidden-xs">
+                            <li><a href="#" title=""><i class="fa fa-eye"></i> Browse</a></li>
+                            <li><a href="#" title=""><i class="fa fa-cloud-download"></i> Download</a></li>
+                        </ul>
+                </div>
+
+                <div class="col-xs-4 col-sm-4">
+                    <a href="#" title=""><img src="assets/images/chef-works-australia-denim-loobook.jpg" alt=""></a>
+                    <br>
+                        <h4>Denim Lookbook</h4>
+                        <ul class="catalogue-tools hidden-xs">
+                            <li><a href="#" title=""><i class="fa fa-eye"></i> Browse</a></li>
+                            <li><a href="#" title=""><i class="fa fa-cloud-download"></i> Download</a></li>
+                        </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- end catalogues -->
+
+    <br><br>
+
+    <!-- cta bottom -->
+    <div class="cta-bottom-hp">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-sm-6 col-md-3">
+                    <h5><a href="">About chef works</a></h5>
+                    <a href="#" title="About Chef Works Australia"><img src="assets/images/temp_staging/img.jpg" alt="About Chef Works Australia"></a>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <h5><a href="">Capabilities</a></h5>
+                    <a href="#" title="Chef Works' Capabilities"><img src="assets/images/temp_staging/img.jpg" alt="Chef Works' Capabilities"></a>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <h5><a href="">Chef of the Month</a></h5>
+                    <a href="#" title="Discover every month a new chef!"><img src="assets/images/temp_staging/img.jpg" alt="Chef of the Month"></a>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <h5><a href="">Become a reseller</a></h5>
+                    <a href="#" title="Become a Chef Works Reseller"><img src="assets/images/temp_staging/img.jpg" alt="Become a Chef Works reseller"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end cta bottom --> 
+
+    <br><br>
+    
+    <div class="container" style="display:none;">
+
+        <div style="clear:both;"></div>
+        <br>
+
+        <div class="col-sm-12">
+            <div id="homepage-content">[@page_content@]</div>
+            [%ADVERT type:'product' limit:'8' template:'' ad_group:''%]
+                [%PARAM *header%]
+                    <hr />
+                    <div class="row">
+                [%END PARAM%]
+                [%PARAM footer%]
+                    </div>
+                [%END PARAM%]
+                [%PARAM *ifempty%]
+                    [%RANDOM_PRODUCTS category:'0' template:'' limit:'8'%]
+                        [%PARAM *header%]
+                            <hr />              
+                            <div class="row">
+                        [%END PARAM%]
+                        [%PARAM *footer%]
+                            </div>
+                        [%END PARAM%]
+                    [%END RANDOM_PRODUCTS%]
+                [%END PARAM%]
+            [%END ADVERT%]
+        </div>
+    </div>
+</div>

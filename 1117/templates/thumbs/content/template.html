@@ -1,0 +1,29 @@
+<div class="media btm-bdr" itemtype="http://schema.org/Article">
+    <div class="media-body">
+      <img class="blogpage-content-headers" src="[%asset_url type:'content' id:'[@content_id@]' thumb:'full' default:'' /%]"> </img>
+    	<h4><a href="[@URL@]" itemprop="url">[@content_name@]</a></h4>
+    	<p class="text-muted">
+    	<!--##[%IF [@content_author@]%]##-->
+        Author: [@content_author@] &nbsp;
+        <!--##[%END IF%]##-->
+        <!--##[%IF [@date_posted@] != 0000-00-00 00:00:00%]##-->
+        Date Posted:&nbsp;<!--##[%FORMAT type:'date'%]##-->[@date_posted@]<!--##[%END FORMAT%]##--> &nbsp;
+        <!--##[%END IF%]##-->
+        </p>
+    	<p class="clearfix">[%format type:'text' maxlength:'700' rmhtml:'1' %][@content_description1@][%END format%]...</p>
+        <div class="wrapper-share-button">
+            <a class="addthis_button btn btn-default btn-xs" addthis:url="[@URL@]"
+            addthis:title="[@content_name@]"  addthis:description="[@content_short_description1@]" href="http://www.addthis.com/bookmark.php?v=300&amp;pubid=xa-5282cbb6476f74a0" target="_blank">
+            <strong>Share: </strong>
+            <i class="fa fa-facebook-square text-facebook"></i>
+            <i class="fa fa-twitter-square text-twitter"></i>
+            <i class="fa fa-google-plus-square text-google-plus"></i>
+            <i class="fa fa-pinterest-square text-pinterest"></i>
+            <i class="fa fa-tumblr-square text-tumblr"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<!-- This template creates the blog list feed (../blog/)-->

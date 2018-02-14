@@ -1,0 +1,111 @@
+<br>
+<br>
+<!-- sidebar right -->
+    <div id="sidebar-right" class="col-sm-3">
+        
+        <!--##[%MENU id:'from-the-blog'%]
+            [%PARAM header%]##-->
+            <div class="panel panel-default hidden-xs">
+                <div class="panel-heading"><h3 class="panel-title">From the blog</h3></div>
+                <ul class="list-group">
+                    <!--##[%/PARAM%]
+                    [%PARAM *level_1%]##-->
+                        <li class="[%DATA id:'next_level' if:'ne' value:''%]dropdown-submenu[%/DATA%]"><a class="list-group-item" href="[@url@]" title="Meet [@name@]">[@name@]</a>
+                            <!--##[%DATA id:'next_level' if:'ne' value:''%]##-->
+                                <ul class="dropdown-menu">
+                                    [@next_level@]
+                                </ul>
+                            <!--##[%/DATA%]##-->
+                        </li>
+                    <!--##[%/PARAM%]
+                    [%PARAM *level_2%]##-->
+                        <li class="[%DATA id:'next_level' if:'ne' value:''%]dropdown-submenu[%/DATA%]">
+                            <a href="[@url@]">[@name@]</a>
+                            <!--##[%DATA id:'next_level' if:'ne' value:''%]##-->
+                                <ul class="dropdown-menu">[@next_level@]</ul>
+                            <!--##[%/DATA%]##-->
+                        </li>
+                    <!--##[%/PARAM%]
+                    [%PARAM *level_3%]##-->
+                        <li class="lv3-li">
+                            <a href="[@url@]">[@name@]</a>
+                        </li>
+                    <!--##[%/PARAM%]
+                    [%PARAM footer%]##-->
+                </ul>
+            </div>
+            <!--##[%/PARAM%]
+        [%/MENU%]##-->
+                        
+        <!--##[%MENU id:'cotm_list'%]
+            [%PARAM header%]##-->
+            <div class="panel panel-default hidden-xs">
+                <div class="panel-heading"><h3 class="panel-title">Chef of The Month</h3></div>
+                <ul class="list-group">
+                    <!--##[%/PARAM%]
+                    [%PARAM *level_1%]##-->
+                        <li class="[%DATA id:'next_level' if:'ne' value:''%]dropdown-submenu[%/DATA%]"><a class="list-group-item" href="[@url@]" title="Meet [@name@]">[@name@]</a>
+                            <!--##[%DATA id:'next_level' if:'ne' value:''%]##-->
+                                <ul class="dropdown-menu">
+                                    [@next_level@]
+                                </ul>
+                            <!--##[%/DATA%]##-->
+                        </li>
+                    <!--##[%/PARAM%]
+                    [%PARAM *level_2%]##-->
+                        <li class="[%DATA id:'next_level' if:'ne' value:''%]dropdown-submenu[%/DATA%]">
+                            <a href="[@url@]">[@name@]</a>
+                            <!--##[%DATA id:'next_level' if:'ne' value:''%]##-->
+                                <ul class="dropdown-menu">[@next_level@]</ul>
+                            <!--##[%/DATA%]##-->
+                        </li>
+                    <!--##[%/PARAM%]
+                    [%PARAM *level_3%]##-->
+                        <li class="lv3-li">
+                            <a href="[@url@]">[@name@]</a>
+                        </li>
+                    <!--##[%/PARAM%]
+                    [%PARAM footer%]##-->
+                </ul>
+            </div>
+            <!--##[%/PARAM%]
+        [%/MENU%]##-->
+        
+        
+        <!--##[%MENU id:'recipes-list'%]
+            [%PARAM header%]##-->
+            <div class="panel panel-default hidden-xs">
+                <div class="panel-heading"><h3 class="panel-title">Recipes</h3></div>
+                <ul class="list-group">
+                    <!--##[%/PARAM%]
+                    [%PARAM *level_1%]##-->
+                        <li class="[%DATA id:'next_level' if:'ne' value:''%]dropdown-submenu[%/DATA%]"><a class="list-group-item" href="[@url@]" title="Read the recipe [@name@]">[@name@]</a>
+                            <!--##[%DATA id:'next_level' if:'ne' value:''%]##-->
+                                <ul class="dropdown-menu">
+                                    [@next_level@]
+                                </ul>
+                            <!--##[%/DATA%]##-->
+                        </li>
+                    <!--##[%/PARAM%]
+                    [%PARAM *level_2%]##-->
+                        <li class="[%DATA id:'next_level' if:'ne' value:''%]dropdown-submenu[%/DATA%]">
+                            <a href="[@url@]">[@name@]</a>
+                            <!--##[%DATA id:'next_level' if:'ne' value:''%]##-->
+                                <ul class="dropdown-menu">[@next_level@]</ul>
+                            <!--##[%/DATA%]##-->
+                        </li>
+                    <!--##[%/PARAM%]
+                    [%PARAM *level_3%]##-->
+                        <li class="lv3-li">
+                            <a href="[@url@]">[@name@]</a>
+                        </li>
+                    <!--##[%/PARAM%]
+                    [%PARAM footer%]##-->
+                </ul>
+            </div>
+            <!--##[%/PARAM%]
+        [%/MENU%]##-->
+        
+        
+    </div>  
+<!-- end sidebar right -->

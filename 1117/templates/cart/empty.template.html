@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <!--##[%load_template file:"cart/cart.error.html"%][%END load_template%]##-->
+        <div class="col-xs-12">
+            <h1 class="text-center">Your Shopping Cart Is Empty!</h1><br />
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-md-offset-3">
+            <p>
+            What are you looking for?
+                <form class="form-inline" name="productsearch" method="get" action="/">
+					<input type="hidden" name="rf" value="kw"/>
+					<div class="input-group">
+						<input class="form-control ajax_search" value="<!--##[%NOHTML%][%FILTER ID:'keywords'%][%END FILTER%][%END NOHTML%]##-->" id="name_search" autocomplete="off" name="kw" type="search"/>
+						<span class="input-group-btn">
+							<button type="submit" value="Search" class="btn btn-default">Search</button>
+						</span>
+					</div>
+                </form> 
+            </p>    
+            <p><a class="btn btn-success" href="[$homeurl$]"><i class="fa fa-home icon-white"></i> Click here to start shopping!</a></p>
+            <br>
+            <br>
+        </div>
+    </div>
+</div>
+
+

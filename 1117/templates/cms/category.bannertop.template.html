@@ -1,0 +1,376 @@
+<!--##[%SET [@page_type@]='category'/%]##-->
+
+<!-- CATEGORY.BANNERTOP -->
+
+<div class="top-category-wrapper positive" style="background-image:url([%asset_url type:'content' id:'[@content_id@]' default:''/%]); background-size:cover; background-position:center center; height:400px;">
+    <div class="container">
+        <div class="row">
+        	<!--##[%IF [@content_id@]%]##-->
+
+                <!--##[%IF [@content_description1@]%]##-->
+                <div class="col-sm-6">
+                    <br />
+                    <h1>
+                        <!--##[%url_info name:'page_heading' if:'eq' value:''%]
+                            [%PARAM if_true%]##-->
+                            [@content_name@]
+                            <!--##[%END PARAM%]
+                            [%PARAM if_false%]##-->
+                            <!--##[%url_info name:'page_heading'%][%end url_info%]##-->
+                            <!--##[%END PARAM%]
+                        [%end url_info%]##-->
+
+                        <!--##[%IF [@keywords@] == ''%]##-->
+                            <!--##[%FILTER ID:'keywords' if:'ne' value:''%]##--><!--##[%NOHTML%][%FILTER ID:'keywords'%][%END FILTER%][%END NOHTML%]##--><!--##[%END FILTER%]##-->
+                        <!--##[%END IF%]##-->
+                    </h1>
+                    <div class="category-desc banner-top-layout">
+                    <!-- [@content_short_description1@] -->
+                    [@content_description1@]
+                    </div>
+                </div>
+                <!--##[%ELSE%]##-->
+                <div class="col-sm-12 no-description">
+                    <br />
+                    <h1>
+                        <!--##[%url_info name:'page_heading' if:'eq' value:''%]
+                            [%PARAM if_true%]##-->
+                            [@content_name@]
+                            <!--##[%END PARAM%]
+                            [%PARAM if_false%]##-->
+                            <!--##[%url_info name:'page_heading'%][%end url_info%]##-->
+                            <!--##[%END PARAM%]
+                        [%end url_info%]##-->
+
+                        <!--##[%IF [@keywords@] == ''%]##-->
+                            <!--##[%FILTER ID:'keywords' if:'ne' value:''%]##--><!--##[%NOHTML%][%FILTER ID:'keywords'%][%END FILTER%][%END NOHTML%]##--><!--##[%END FILTER%]##-->
+                        <!--##[%END IF%]##-->
+                    </h1>
+                </div>
+                <!--##[%END IF%]##-->
+
+            <!--##[%ELSE%]##-->
+            <div class="col-sm-6">
+            	<br /><br />
+                <h1>
+                    <!--##[%url_info name:'page_heading' if:'eq' value:''%]
+                        [%PARAM if_true%]##-->
+                        [@content_name@]
+                        <!--##[%END PARAM%]
+                        [%PARAM if_false%]##-->
+                        <!--##[%url_info name:'page_heading'%][%end url_info%]##-->
+                        <!--##[%END PARAM%]
+                    [%end url_info%]##-->
+
+                    <!--##[%IF [@keywords@] == ''%]##-->
+                        <!--##[%FILTER ID:'keywords' if:'ne' value:''%]##--><!--##[%NOHTML%][%FILTER ID:'keywords'%][%END FILTER%][%END NOHTML%]##--><!--##[%END FILTER%]##-->
+                    <!--##[%END IF%]##-->
+                </h1>
+                <p class="category-desc">
+                <!-- [@content_short_description1@] -->
+                [@content_description1@]
+                </p>
+            </div>
+            <!--##[%END IF%]##-->
+        </div>
+    </div>
+</div>
+
+<!-- image category -->
+    <div style="color:#fff; display:none;"><img style="width:100%;" src="[%asset_url type:'content' id:'[@content_id@]' default:''/%]" alt="[@content_name@] - Chef Works"></div>
+<!-- end image category -->
+
+<!-- breadcrumb-wrapper -->
+<div class="breadcrumb-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12" id="shopbyfamily">
+                <!-- breadcrumb -->
+                <!--##[%breadcrumb%]
+                    [%PARAM *header%]##-->
+                        <ul class="breadcrumb">
+                            <li>
+                                <a href="[$home_url$]">Home</a>
+                            </li>
+                    <!--##[%END PARAM%]
+                    [%PARAM *body%]##-->
+                        <li>
+                            <a href="[@url@]">[@name@]</a>
+                        </li>
+                    <!--##[%END PARAM%]
+                    [%PARAM *footer%]##-->
+                        </ul>
+                <!--##[%END PARAM%] [%END breadcrumb%]##-->
+                <!-- end breadcrumb -->
+            </div>
+        </div> <!-- end row -->
+    </div>
+</div>
+<!-- end breadcrumb-wrapper -->
+
+
+<!-- urban collection families -->
+[%advert type:'text' template:'urban-collection-families' inherit:'n' limit:'16' ad_group:''%]
+    [%param *header%]
+    <div class="container-fluid urban-families-box">
+    [%/param%]
+    [%param footer%]
+    </div>
+    [%/param%]
+[%/advert%]
+<!-- urban collection families -->
+
+<!--##[%load_template file:"includes/aprons-filter.template.html"%][%END load_template%]##-->
+
+[%if [@content_id@] == '269'%]
+<!-- Zipper collection -->
+<style>
+#zipper-hero{
+	margin:60px auto;
+	}
+
+	#zipper-hero .jacket h3{
+		font-size:22px;
+		text-transform:capitalize;
+		margin-top:20px;
+		margin-bottom:10px;
+		}
+
+	#zipper-hero img{
+		width:100%;
+		}
+</style>
+<div class="row">
+    <div class="col-xs-12">
+<br>
+        <h2 class="text-center sub-heading">new colours and styles</h2>
+<br>
+    </div>
+    <div class="ban-zip">
+      <img class="img-zip" src="/assets/img/frame.jpg" alt="New Zipper Jackets">
+    </div>
+</div>
+
+[%/if%]
+
+<!--Cool Vent Sub Categories jackets - shirts - pants - headwear -->
+[%if [@content_id@] == '105'%]
+<style>
+.cool-vent-filter{
+		float:left;
+	}
+.wrapper-cool-vent-filter{
+		display:inline-block;
+		margin:auto;
+	}
+
+h3.cool-vent {
+    text-transform: lowercase;
+    text-align: center;
+    margin: 40px auto;
+}
+
+@media only screen and (max-width:600px) {
+	.wrapper-cool-vent-filter{
+			max-width:290px;
+		}
+}
+
+</style>
+<div class="container" style="margin:40px auto 40px auto;">
+	<div class="row text-center">
+    	<h3 class="cool-vent">Shop by</h3>
+    </div>
+	<div class="row text-center">
+    	<div class="wrapper-cool-vent-filter">
+            <div class="cool-vent-filter">
+                <a class="text-center" href="[%url id:'171' https:'1'/%]" title="Browse Lite Weight Chef Jackets">
+                    <img src="/assets/images/cool-vent-filters/chef-jackets.png" alt="Shop Lite Weight Chef Jackets">
+                </a>
+                <p class="text-center">
+                    <a href="[%url id:'171' https:'1'/%]" title="Browse Lite Weight Chef Jackets">jackets</a>
+                </p>
+            </div>
+            <div class="cool-vent-filter">
+                <a class="text-center" href="[%url id:'123' https:'1'/%]" title="Browse Lite Weight Chef Pants">
+                    <img src="/assets/images/cool-vent-filters/pants.png" alt="Shop Lite Weight Chef Pants">
+                </a>
+                <p class="text-center">
+                    <a href="[%url id:'123' https:'1'/%]" title="Browse Lite Weight Chef Pants">pants</a>
+                </p>
+            </div>
+            <div class="cool-vent-filter">
+                <a class="text-center" href="[%url id:'147' https:'1'/%]" title="Browse Lite Weight Shirts">
+                    <img src="/assets/images/cool-vent-filters/shirts.png" alt="Shop Lite Weight Shirts">
+                </a>
+                <p class="text-center">
+                    <a href="[%url id:'147' https:'1'/%]" title="Browse Lite Weight Shirts">shirts</a>
+                </p>
+            </div>
+            <div class="cool-vent-filter">
+                <a class="text-center" href="[%url id:'124' https:'1'/%]" title="Browse Lite Weight Headwear">
+                    <img src="/assets/images/cool-vent-filters/headwear.png" alt="Shop Lite Weight Headwear">
+                </a>
+                <p class="text-center">
+                    <a href="[%url id:'124' https:'1'/%]" title="Browse Lite Weight Headwear">headwear</a>
+                </p>
+            </div>
+            <div style="clear:both"></div>
+    	</div>
+    </div>
+</div>
+[%/if%]
+
+[%if [@content_id@] == '164'%]
+<!--##[%load_template file:"includes/crossbackcategory.template.html"%][%END load_template%]##-->
+[%/if%]
+
+<!-- main content -->
+<div id="main-content" class="container">
+	<div class="row">
+
+        <!-- filter banners content_description2 -->
+            <div id="category-filtering">
+                [@content_short_description2@]
+                [@content_short_description3@]
+                <div style="clear:both;"></div>
+            </div>
+        <!-- end filter banners content_description2 -->
+        <br>
+        <br>
+        <div style="clear:both;"></div>
+
+        <!-- sidebar left -->
+            <!--##[%load_template file:"includes/sidebar.template.html"%][%END load_template%]##-->
+        <!-- end sidebar left -->
+
+        <!-- products list area -->
+            <!--##[%THUMB_LIST type:'products' limit:'[$THUMB_LIMIT$]'%]
+                [%PARAM template%][%VIEWBY type:'products' default:'[@templatethumb@]'%][%END VIEWBY%][%END PARAM%]
+                [%PARAM *header%]##-->
+                <div class="row sort_container">
+                    <div class="col-xs-4 col-sm-7 col-md-4">
+                        <script type="text/javascript">
+                            function viewtype(view) {
+                                var f=document.viewForm;
+                                f['viewby'].value=view;
+                                f.submit();
+                            }
+                        </script>
+                        <form method="get" name="viewForm" action="[$CURRENT_URL$]" class="hidden">
+                            <input name="rf" type="hidden" value="[%FILTER_CODE%][%END FILTER_CODE%]">
+                            <input name="viewby" type="hidden" value=""/>
+                        </form>
+                        <div class="viewby btn-group">
+                            <a href="javascript:viewtype('');" class="btn btn-default [%VIEWBY type:'products' if:'ne' value:'list' if_true:'active' if_false:''%][%END VIEWBY%]" rel="nofollow">
+                                <i class="fa fa-th"></i>
+                            </a>
+                            <a href="javascript:viewtype('list');" class="btn btn-default [%VIEWBY type:'products' if:'eq' value:'list' if_true:'active' if_false:''%][%END VIEWBY%]" rel="nofollow">
+                                <i class="fa fa-th-list"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 hidden-xs hidden-sm">
+                        <div class="btn-text">
+                            <strong>[@total_results@]</strong> Products Found
+                        </div>
+                    </div>
+                    <div class="col-xs-8 col-sm-5 col-md-4">
+                        <form method="get" class="form-horizontal" action="[$CURRENT_URL$]">
+                            <input name="rf" type="hidden" value="[%FILTER_CODE%][%END FILTER_CODE%]">
+                            <div class="form-group">
+                                <label class="control-label col-xs-2">Sort</label>
+                                <div class="col-xs-10">
+                                    <select name="sortby" onChange="return this.form.submit();" class="form-control">
+                                        <option value="popular" [%SORTBY type:'products' if:'eq' value:'popular'%]selected[%END SORTBY%]>
+                                            Most Popular
+                                        </option>
+                                        <option value="name" [%SORTBY type:'products' if:'eq' value:'name'%]selected[%END SORTBY%]>
+                                            Name
+                                        </option>
+                                        <option value="SKU" [%SORTBY type:'products' if:'eq' value:'SKU'%]selected[%END SORTBY%]>
+                                            SKU
+                                        </option>
+                                        <option value="lowest_price" [%SORTBY type:'products' if:'eq' value:'lowest_price'%]selected[%END SORTBY%]>
+                                            Lowest Price
+                                        </option>
+                                        <option value="highest_price" [%SORTBY type:'products' if:'eq' value:'highest_price'%]selected[%END SORTBY%]>
+                                            Highest Price
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <hr>
+                    </div>
+                </div>
+
+                <!-- product list -->
+                <div class="[%VIEWBY type:'products' if:'eq' value:'list' if_true:'thumb_list' if_false:'thumb'%][%END VIEWBY%]">
+                    <div class="row">
+                    <!--##[%END PARAM%]
+                    [%PARAM *footer%]##-->
+                    </div>
+                </div>
+                <!-- end products list -->
+
+                <!--##[%IF [@total_results@] > [$thumb_limit$]%]##-->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <hr />
+                        <div class="text-center">
+                            <ul class="pagination">
+                                <!--##[%paging limit:'3'%]
+                                    [%PARAM *previous_page%]##--><li><a href="[@URL@]"><i class="fa fa-chevron-left"></i></a></li><!--##[%END PARAM%]
+                                    [%PARAM *goback_pages%]##--><li><a href="[@URL@]">[@PAGE@]</a></li><!--##[%END PARAM%]
+                                    [%PARAM *current_page%]##--><li class="active"><a href="[@URL@]">[@PAGE@]</a></li><!--##[%END PARAM%]
+                                    [%PARAM *gonext_pages%]##--><li><a href="[@URL@]">[@PAGE@]</a></li><!--##[%END PARAM%]
+                                    [%PARAM *next_page%]##--><li><a href="[@URL@]"><i class="fa fa-chevron-right"></i></a></li><!--##[%END PARAM%]
+                                [%END paging%]##-->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--##[%END IF%] ##-->
+                <!--##[%END PARAM%]
+
+                [%PARAM *ifempty%]##-->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p>This category is empty! Please try another category or use our search function to find what you are looking for. If you require further assistance please contact us.</p>
+                    </div>
+                </div>
+                <!--##[%END PARAM%]
+            [%END THUMB_LIST%]##-->
+
+            <!-- related content -->
+            <!--##[%THUMB_LIST type:'content' content_type:'' template:'' filter_category:'' filter_content:'[@content_id@]' pgnum:'1' limit:'100'%]
+                [%PARAM *header%]##-->
+
+                    <h1>related content</h1>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h3>[@total_results@] Related Content Found</h3>
+                        <!--##[%END PARAM%]
+                    [%PARAM FOOTER%]##-->
+                        </div>
+                    </div>
+                <!--##[%END PARAM%]
+            [%END THUMB_LIST%]##-->
+        <!-- end products list area -->
+
+    </div>
+    <div class="row hidden-xs">
+        <div class="col-sm-12">
+            <div class="category-desc">
+                <br>
+                [@content_description2@]
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>

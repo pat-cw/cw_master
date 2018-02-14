@@ -1,0 +1,234 @@
+<div class="extra-options" style="border:none;">
+	<!--##[%multilevelpricing id:'[@SKU@]'%]
+		[%PARAM *header%]##-->
+		<table class="hide table table-striped table-bordered table-condensed">
+			<thead>
+				<tr>
+					<th colspan="2">
+						Buy In Bulk &amp; Save!
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!--##[%END PARAM%]
+				[%PARAM *body%]##-->
+				<tr>
+				<td width="20%" nowrap="nowrap">
+				<span class="productmultilevelqty">Buy <!--##[%FORMAT type:'number' dp:'0' sp:','%]##-->[@minqty@]<!--##[%END FORMAT%]##-->
+				<!--##[%IF [@maxqty@] > 0%]##-->
+				to <!--##[%FORMAT type:'number' dp:'0' sp:','%]##-->[@maxqty@]<!--##[%END FORMAT%]##-->:
+				</span>
+				</td>
+				<!--##[%ELSE%]##-->
+				or more:
+				</span>
+				</td>
+				<!--##[%END IF%]##-->
+				<td nowrap="nowrap">
+					<span class="productmultilevelprice">
+						Pay
+						[%if [@user:group_id@] eq '5'%]
+							<!--##[%FORMAT type:'currency'%]##-->[@price@]<!--##[%END FORMAT%]##-->
+						[%else%]
+							<!--##[%FORMAT type:'currency'%]##-->[%calc [@price@]/1.1 /%]<!--##[%END FORMAT%]##-->
+						[%/if%]
+						[@unit@]
+					</span>
+				</td>
+				</tr>
+				<!--##[%END PARAM%]##-->
+				<!--##[%PARAM *footer%]##-->
+			</tbody>
+		</table>
+		<!--##[%END PARAM%]
+	[%END multilevelpricing%]##-->
+	<div class="clear"></div>
+
+	<!-- PRODUCT OPTIONS -->
+	<h3 style="text-transform:none;">Add text</h3>
+	[%extra_options id:'[@SKU@]'%]
+		[%PARAM *header%]
+		<table class="table table-striped table-bordered emb-text-table">
+			[%END PARAM%][%PARAM *number_option%]
+				<tr>
+					<td>
+						<label>[@name@]</label>
+					</td>
+					<td>
+						<input name="extra[@count@]" class="form-control" id="productextra[@count@]" rel="[@SKU@]" value="">
+					</td>
+				</tr>
+			[%END PARAM%][%PARAM *text_option%]
+				[%if [@name@] like 'sku'%]
+					<textarea name="extra[@count@]" class="hidden" id="productextra[@count@]" rel="[@SKU@]" cols="20">SKU:[@form:sku@] | QTY:[@form:qty@]</textarea>
+				[%else%]
+					<tr>
+						<td>
+							<label>[@name@]</label>
+						</td>
+						<td>
+							<textarea name="extra[@count@]" class="form-control" id="productextra[@count@]" rel="[@SKU@]" cols="20" rows="5" placeholder="If you selected more than one line, please enter each line enclosed by &#39;[]&#39; i.e. [Line 1]
+
+[Line 2] [Line 3]"></textarea>
+						</td>
+					</tr>
+				[%/if%]
+			[%END PARAM%]
+			[%PARAM *select_option%]
+				<tr>
+					<td>
+						<label>[@name@]</label>
+					</td>
+					<td>
+						<select name="extra[@count@]" class="form-control js-extras" id="productextra[@count@]" rel="[@SKU@]">
+							[@choices@]
+						</select>
+						[%if [@name@] like 'Thread colour'%]
+
+						[%/if%]
+					</td>
+				</tr>
+			[%END PARAM%]
+			[%PARAM *choices%]
+				<option type="text" class="form-control" value="[@option_id@]" [%if [@price@] > 0 %]data-cost="[%FORMAT type:'number' dp:'2'%][@price@][%/format%]"[%/if%] >[%nohtml%][@text@][%end nohtml%]
+				[%DATA id:'price' if:'!=' value:'0'%]
+					(+ [%FORMAT type:'currency'%][@price@][%END FORMAT%])
+				[%END DATA%]
+				</option>
+			[%END PARAM%]
+            [%PARAM *footer%]
+			<input type="hidden" name="extras" value="[@total_options@]"/>
+		</table>
+		[%END PARAM%]
+	[%END extra_options%]
+
+	<p class="alert alert-warning" style="font-size: 12px;">
+		The standard size of text to be embroidered, based on the provided fonts, is 100mm.<br>
+		The maximum number of characters per line of text is 20.<br>
+		Text that exceeds these maximum limits may incur additional charges.<br>
+		Our customer sales team will be in contact with you if there are any additional charges.
+	</p>
+
+	<!--##[%data id:'multiplier_qty' if:'ne' value:'0' %]##-->
+	Order In Lots Of <strong>[@multiplier_qty@]</strong>
+	<!--##[%end data%]##-->
+	<!--##[%data id:'min_qty' if:'ne' value:'0' %]##-->
+	Minimum Order Quantity <strong>[@min_qty@]</strong>
+	<!--##[%end data%]##-->
+	<!--##[%data id:'max_qty' if:'ne' value:'0' %]##-->
+	Maximum Order Quantity <strong>[@max_qty@]</strong>
+	<!--##[%end data%]##-->
+	<br>
+	[%crosssell id:'[@SKU@]' limit:'3' show_all:'1'%]
+    [%param header%]
+        <div class="nUpsellWidget">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="nUpsellWidget--title">
+                        <h3 style="text-transform:none;">Add logo</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="nUpsellWidget--list" id="multiitemadd">
+                <input type="hidden" id="sku[@rndm@][@SKU@]" name="sku[@rndm@][@SKU@]" value="[@SKU@]">
+                <input type="hidden" id="model[@rndm@][@SKU@]" name="model[@rndm@][@SKU@]" value="[@model@]">
+                <input type="hidden" id="thumb[@rndm@][@SKU@]" name="thumb[@rndm@][@SKU@]" value="[@thumb@]">
+                <div class="row">
+                    [%crosssell id:'[@sku@]' limit:'4' show_all:'1'%]
+                        [%param *body%]
+                            <input type="hidden" id="sku[@rndm@][@SKU@]" name="sku[@rndm@][@SKU@]" value="[@SKU@]">
+                            <input type="hidden" id="model[@rndm@][@SKU@]" name="model[@rndm@][@SKU@]" value="[@model@]">
+                            <input type="hidden" id="thumb[@rndm@][@SKU@]" name="thumb[@rndm@][@SKU@]" value="[@thumb@]">
+                            <input type="hidden" id="qty[@rndm@][@SKU@]" name="qty[@rndm@][@SKU@]" value="0" placeholder="Qty" class="logo-qty">
+                            <div class="col-xs-4">
+                                <div class="row">
+                                    <label class="emb-logo-select" data-toggle="modal" data-target="#logo-upload">
+                                        <div class="col-xs-12">
+                                            <img class="emb-logo-select-image" src="[%asset_url type:'product' thumb:'full' id:'[@SKU@]'/%]">
+                                        </div>
+                                        <div class="col-xs-12 text-center">
+                                            <br>
+                                            <h4 class="text-center" style="text-transform:none;">[@model@]<br>[@subtitle@]</h4>
+                                            <p class="text-center" style="color:#333;">[%format type:'currency'%][@price@][%/format%]</p>
+											<input type="radio" class="nUpsellWidget--list--toggle text-center" name="logo" data-product="[@rndm@][@SKU@]" [%if [@price@] > 0 %]data-cost="[%FORMAT type:'number' dp:'2'%][@price@][%/format%]"[%/if%]> Add to my order<br>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        [%/param%]
+                    [%/crosssell%]
+                </div>
+                <div>
+                	<table class="table table-striped table-bordered logo-placement-target">
+                    </table>
+                    <button class="pull-right btn btn-small btn-secondary remove-logo"><i class="fa fa-times" aria-hidden="true"></i> Remove logo</button>
+                </div>
+				<div class="row">
+					<div class="col-xs-12 text-center">
+						<p class="logo-msg">Please note:<br>You'll be prompted to upload your logo after you complete the checkout process.</p>
+					</div>
+				</div>
+                <div class="nUpsellWidget--buyingOptions">
+                    <div class="row btn-stack">
+                        <input type="hidden" id="qty[@rndm@][@SKU@]" name="qty[@rndm@][@SKU@]" value="[@form:qty@]" class="qty">
+						<div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
+                        	<button disabled="" onclick="javascript:$.addMultipleCartItems('multiitemadd'); return false;" target="_self" class="nUpsellWidget--buyingOptions--button btn btn-lg btn-block btn-success embroidery-add-to-cart"><i class="fa fa-shopping-cart icon-white hidden-xs"></i> Add Embroidery To Cart</button>
+						</div>
+						<div class="col-xs-12 col-sm-6 col-sm-offset-3 add-another" style="display:none">
+							<a href="[@form:url@]" class="btn btn-lg btn-block btn-default">Add Another [%url_decode%][@form:name@][%/url_decode%]</a>
+						</div>
+                    </div>
+                </div>
+            </div>
+    [%/param%]
+    [%param *body%]
+        <!--Keep this empty-->
+    [%/param%]
+    [%param *ifempty%]
+		<form class="buying-options">
+			<input type="hidden" id="model[@rndm@][@SKU@]" name="model" value="[@model@]">
+			<input type="hidden" id="thumb[@rndm@][@SKU@]" name="thumb" value="[@thumb@]">
+			<input type="hidden" id="sku[@rndm@][@SKU@]" name="sku" value="[@SKU@]">
+			<div class="row btn-stack">
+				<input type="hidden" min="[@min_qty@]" class="form-control qty" id="qty[@rndm@][@SKU@]" name="qty" value="[@form:qty@]"/>
+				<div class="col-xs-12 col-sm-6 col-sm-offset-3">
+					<button type="button" title="Add to Cart" class="addtocart btn btn-success btn-block btn-lg btn-loads embroidery-add-to-cart" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>" rel="[@rndm@][@SKU@]"><i class="fa fa-shopping-cart icon-white hidden-xs"></i> Add Embroidery To Cart</button>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-sm-offset-3" style="display:none">
+					<a href="[@form:url@]" class="btn btn-lg btn-block btn-default">Add Another [%url_decode%][@form:name@][%/url_decode%]</a>
+				</div>
+			</div>
+		</form>
+	[%/param%]
+	[%/crosssell%]
+
+	<hr/>
+	<!--##[%IF [@short_description@]%]##-->
+	<p>
+	[@short_description@]
+	</p>
+	<!--##[%END IF%]##-->
+
+</div>
+
+<div class="hidden">
+	<div id="notifymodal" class="notifymodal">
+		<div class="modal-header">
+			<h4 class="modal-title">Notify me when back in stock</h4>
+		</div>
+		<div class="modal-body">
+			<div class="form-group">
+				<label>Your Name</label>
+				<input placeholder="Jane Smith" name="from_name" id="from_name" type="text" class="form-control" value="[%NOHTML%][@FROM_NAME@][%END NOHTML%]">
+			</div>
+			<div class="form-group">
+				<label>Your Email Address</label>
+				<input placeholder="jane.smith@test.com.au" name="from" id="from" type="email" class="form-control" value="[%NOHTML%][@FROM@][%END NOHTML%]">
+			</div>
+		</div>
+		<div class="modal-footer">
+			<input class="btn btn-danger" type="button" onclick="$.fancybox.close(true)" data-dismiss="modal" value="Cancel">
+			<input class="btn btn-success" type="button" value="Save My Details" onClick="javascript:$.addNotifyBackInStock('[@SKU@]', '');$.fancybox.close(true)">
+		</div>
+	</div><!-- /.modal-content -->
+</div>

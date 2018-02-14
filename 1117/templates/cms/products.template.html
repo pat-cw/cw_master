@@ -1,0 +1,148 @@
+<div class="top-category-wrapper positive" style="background-image:url([%asset_url type:'content' id:'[@content_id@]' default:''/%]); background-size:cover; background-position:center center; height:400px;">
+    <div class="container">
+        <div class="row">
+        	<!--##[%IF [@content_id@]%]##-->
+            
+                <!--##[%IF [@content_description1@]%]##-->
+                <div class="col-sm-6">
+                    <br />
+                    <h1 style="text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);">
+                        <!--##[%url_info name:'page_heading' if:'eq' value:''%]
+                            [%PARAM if_true%]##-->
+                            [@content_name@]
+                            <!--##[%END PARAM%]
+                            [%PARAM if_false%]##-->
+                            <!--##[%url_info name:'page_heading'%][%end url_info%]##-->
+                            <!--##[%END PARAM%]
+                        [%end url_info%]##-->
+
+                        <!--##[%IF [@keywords@] == ''%]##-->
+                            <!--##[%FILTER ID:'keywords' if:'ne' value:''%]##--><!--##[%NOHTML%][%FILTER ID:'keywords'%][%END FILTER%][%END NOHTML%]##--><!--##[%END FILTER%]##-->
+                        <!--##[%END IF%]##-->
+                    </h1>
+                    <div class="category-desc banner-top-layout">
+                    <!-- [@content_short_description1@] -->
+                    [@content_description1@]
+                    <br />
+                        <p style="text-align:center;">
+                    <a href="#shopbyfamily" title="Shop now" class="btn btn-primary">Shop now</a>
+                    </div>
+                </div>
+                <!--##[%ELSE%]##-->
+                <div class="col-sm-12 no-description">
+                    <br />
+                    <h1 style="text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);">
+                        <!--##[%url_info name:'page_heading' if:'eq' value:''%]
+                            [%PARAM if_true%]##-->
+                            [@content_name@]
+                            <!--##[%END PARAM%]
+                            [%PARAM if_false%]##-->
+                            <!--##[%url_info name:'page_heading'%][%end url_info%]##-->
+                            <!--##[%END PARAM%]
+                        [%end url_info%]##-->
+
+                        <!--##[%IF [@keywords@] == ''%]##-->
+                            <!--##[%FILTER ID:'keywords' if:'ne' value:''%]##--><!--##[%NOHTML%][%FILTER ID:'keywords'%][%END FILTER%][%END NOHTML%]##--><!--##[%END FILTER%]##-->
+                        <!--##[%END IF%]##-->
+                    </h1>
+                </div>
+                <!--##[%END IF%]##-->
+            
+            <!--##[%ELSE%]##-->
+            <div class="col-sm-6">
+            	<br /><br />
+                <h1>
+                    <!--##[%url_info name:'page_heading' if:'eq' value:''%]
+                        [%PARAM if_true%]##-->
+                        [@content_name@]
+                        <!--##[%END PARAM%]
+                        [%PARAM if_false%]##-->
+                        <!--##[%url_info name:'page_heading'%][%end url_info%]##-->
+                        <!--##[%END PARAM%]
+                    [%end url_info%]##-->
+
+                    <!--##[%IF [@keywords@] == ''%]##-->
+                        <!--##[%FILTER ID:'keywords' if:'ne' value:''%]##--><!--##[%NOHTML%][%FILTER ID:'keywords'%][%END FILTER%][%END NOHTML%]##--><!--##[%END FILTER%]##-->
+                    <!--##[%END IF%]##-->
+                </h1>
+                <p class="category-desc">
+                <!-- [@content_short_description1@] -->
+                [@content_description1@]
+                <br />
+                <a href="#shopbyfamily" title="Shop by family" class="btn btn-primary">SHOP NOW</a>
+                </p>
+            </div>
+            <!--##[%END IF%]##-->
+        </div>
+    </div>
+</div>
+
+<!-- breadcrumb-wrapper -->
+<div class="breadcrumb-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12" id="shopbyfamily">
+                <!-- breadcrumb -->
+                <!--##[%breadcrumb%]
+                    [%PARAM *header%]##-->
+                        <ul class="breadcrumb">
+                            <li>
+                                <a href="[$home_url$]">Home</a>
+                            </li>
+                    <!--##[%END PARAM%]
+                    [%PARAM *body%]##-->
+                        <li>
+                            <a href="[@url@]">[@name@]</a>
+                        </li>
+                    <!--##[%END PARAM%]
+                    [%PARAM *footer%]##-->
+                        </ul>
+                <!--##[%END PARAM%] [%END breadcrumb%]##-->
+                <!-- end breadcrumb -->
+            </div>
+        </div> <!-- end row -->
+    </div>
+</div>
+<!-- end breadcrumb-wrapper -->
+<div class="container">
+    <div class="col-sm-12">
+    
+    <p>
+        [@content_short_description1@]
+        [@content_short_description2@]
+        [@content_short_description3@]
+    </p>
+    <p>
+        [%parse%]
+            [@content_description1@]
+            [@content_description2@]
+            [@content_description3@]
+        [%/ parse%]
+    </p>
+    
+    <!--##[%CATEGORYMENU sortby:'sortorder,name' show_empty:'1' limit:''%]
+        [%PARAM header%]##-->
+            <div class="row">
+        <!--##[%END PARAM%]
+        [%PARAM *level_1%]##-->
+            <div class="col-xs-12 col-sm-4 thumbnail-category">
+                <a href="[@url@]" title="Browse [@name@]" style="display:block; background-image:url([%asset_url type:'category' id:'[@id@]'%][%param default%][%NTHEME_ASSET%]img/default_product.gif[%END NTHEME_ASSET%][%end param%][%END asset_url%]); background-size:cover; background-position:center center; height:100px;">
+                </a>
+                <br>
+                <h4 class="text-center">
+                	<a href="[@url@]" title="Browse [@name@]">[@name@]</a>
+                </h4>
+            </div>
+        <!--##[%END PARAM%]
+        [%PARAM footer%]##-->
+            </div>
+        <!--##[%END PARAM%]
+    [%END CATEGORYMENU%]##-->  
+    <!--#Start Column Right# ##-->
+    </div>
+    <!--# End Column Right# ##-->
+</div>
+
+<p>
+	&emsp;
+</p>

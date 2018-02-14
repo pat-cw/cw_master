@@ -1,0 +1,15 @@
+type
+website
+----------
+name
+Classic
+----------
+version
+5
+----------
+install_description
+<p>Classic is a highly customisable theme that features a responsive design that automatically resizes to fit desktop, tablet and mobile devices. Categories are displayed in the header with drop down menus for sub categories. The home page features a scrolling carousel that spans the width of the page and a features product section.</p>
+----------
+description
+<h1>Classic</h1>
+<p>Classic is a highly customisable theme that features a responsive design that automatically resizes to fit desktop, tablet and mobile devices. Categories are displayed in the header with drop down menus for sub categories. The home page features a scrolling carousel that spans the width of the page and a features product section.</p>

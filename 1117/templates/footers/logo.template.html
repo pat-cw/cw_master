@@ -1,0 +1,163 @@
+
+
+
+<!-- Required Neto Scripts - DO NOT REMOVE -->
+<script type="text/javascript" src="[$imageurl$]/js/util.js"></script>
+<script type="text/javascript" src="[%ntheme_asset%]js/jquery.min.js[%END ntheme_asset%]"></script>
+<script type="text/javascript" src="[%ntheme_asset%]plugins/fancybox/jquery.fancybox.pack.js[%END ntheme_asset%]"></script>
+[%NETO_JS html:'1' id:'main' /%]
+<script type="text/javascript" src="[%ntheme_asset%]js/bootstrap.min.js[%END ntheme_asset%]"></script>
+<script type="text/javascript" src="[%ntheme_asset%]js/custom.js[%END ntheme_asset%]"></script>
+<!-- script type="text/javascript"  src="[%ntheme_asset%]js/instafeed.js[%end ntheme_asset%]"></script -->
+<!-- Plugin Scripts -->
+<script type="text/javascript" src="[%ntheme_asset%]plugins/jquery_ui/js/jquery-ui-1.8.18.custom.min.js[%END ntheme_asset%]"></script>
+<!-- <script type="text/javascript" src="[%ntheme_asset%]plugins/jcarousel/js/jquery.jcarousel.min.js[%END ntheme_asset%]"></script> -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-5282cbb6476f74a0" async></script>
+[%SITE_VALUE id:'footer_javascript' type:'load'%][%END SITE_VALUE%]
+<!-- Analytics - DO NOT REMOVE -->
+[%load_template file:"trackingcode/VisitorTracking.html"%][%END load_template%]
+[%load_template file:"includes/npopup.template.html"%][%END load_template%]
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('li.search-icon a').click(function(){
+            if ( $('#search-top').hasClass('visible') ){
+                $(this).html('<i class="fa fa-search">');
+                $('#search-top').removeClass('visible');
+            } else {
+                $(this).html('<i class="fa fa-times"></i>');
+                $('#search-top').addClass('visible');
+                setTimeout(function() { $('input#name_search.form-control.ajax_search').focus().select(); }, 300);
+            }
+        });
+
+        //sticky navigation
+        $navPos = $('#mainnav').offset().top;
+        if ( $(window).width() > 768 ) {
+            $(window).scroll(function(){
+                if( $(window).scrollTop() > $navPos ) {
+                    $('#mainnav').addClass('fixed');
+                } else {
+                    $('#mainnav').removeClass('fixed');
+                } //end if
+            });
+        } //end if
+
+
+        /*var userFeed = new Instafeed({
+            get: 'user',
+            userId: 520164454,
+            accessToken: '520164454.467ede5.bf84e724ffc0440bb84c48e5148c1aef',
+            resolution: 'low_resolution',
+            limit: '10'
+        });
+        userFeed.run();*/
+
+
+        //modal sizechart script
+        $("#sizeChart").on("show.bs.modal", function(e) {
+            var link = $(e.relatedTarget);
+            $(this).find(".modal-body").html('<img src="/assets/images/sizing/chart.jpg"  alt="Make sure to choose the perfect size">');
+
+        });
+
+        //modal embroidery style script
+        $font = $('.font').val();
+        $colour = $('.colour').val();
+        $embText = $('.text').val();
+        $embResult = $('.result');
+
+        $(".text").keyup(function(){
+            $font = $('.font').val();
+            $colour = $('.colour').val();
+            $embText = $('.text').val();
+            $embResult.css({fontFamily: $font, color: $colour}).text($embText);
+            return false;
+        });
+
+        $(".colour").change(function(){
+            $font = $('.font').val();
+            $colour = $('.colour').val();
+            $embText = $('.text').val();
+            $embResult.css({fontFamily: $font, color: $colour})
+            return false;
+        });
+
+        $(".font").change(function(){
+            $font = $('.font').val();
+            $colour = $('.colour').val();
+            $embText = $('.text').val();
+            $embResult.css({fontFamily: $font, color: $colour})
+            return false;
+        });
+
+        $fontSize =  $('.result').css('fontSize').split('px')[0];
+        $('.increaseSize').click(function(){
+            $fontSizeIncreased = $fontSize ++ + 'px';
+            $embResult.css({fontSize: $fontSizeIncreased});
+            return false;
+        });
+
+        $fontSize =  $('.result').css('fontSize').split('px')[0];
+        $('.decreaseSize').click(function(){
+            $fontSizeDecreased = $fontSize -- + 'px';
+            $embResult.css({fontSize: $fontSizeDecreased});
+            return false;
+        });
+
+        /* if ( $('body').hasClass('n_home') ){
+            // do nothing
+        } else {
+            $(function() {
+              $('a[href*=#]:not([href=#])').click(function() {
+                if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+                  var target = $(this.hash);
+                  target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+                  if (target.length) {
+                    $('html,body').animate({
+                      scrollTop: target.offset().top
+                    }, 500);
+                    return false;
+                  }
+                }
+              });
+            });
+        }//end if
+        */
+
+        // back to top fade
+        $(window).scroll(function(){
+            if ( $(window).scrollTop() > 300 ){
+                $('.backtotop').animate({opacity: 1}, 150);
+            } else {
+                $('.backtotop').animate({opacity: 0}, 150);
+            };
+        });
+
+        //checkout page scripts
+        if ( $('body').is('#n_checkout') ){
+            // highlights the first block
+            $('.checkout-step').eq(0).addClass('focus');
+
+            $('.checkout-step').click(function(){
+                $('.checkout-step').removeClass('focus');
+                $(this).addClass('focus');
+            });
+
+        } else {
+            //do nothing
+        };
+
+        /* homepage mobile search */
+        $('.cta-search a').click(function(){
+            $(this).parents('.cta-search').slideUp('fast',function(){
+                $('.cta-search').remove();
+            });
+        });
+
+    }); //end .ready
+</script>
+<p>&nbsp;</p>
+</body>
+</html>
+[@CONFIG:WEBACCELERATOR_DEVMODE@]
